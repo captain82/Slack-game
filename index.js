@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-let port = process.env.PORT || 3000;
+const port = process.env.PORT || '8080';
 const importData = require("./data.json")
 
 app.get("/", (req, res) => {
