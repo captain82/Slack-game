@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || '8080';
+const port = process.env.PORT || 3000;
 const importData = require("./data.json")
 
 app.get("/", (req, res) => {
@@ -12,5 +12,5 @@ app.get("/players", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+    console.log("Express server listening on port");
 });
