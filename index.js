@@ -12,7 +12,7 @@ app.get("/players", (req, res) => {
 });
 
 app.post("/submit/:ca", (req, res) => {
-    res.send(`The id is ${req.body.ca}`)
+    res.send(`The id is ${req.body.ca}`);
 });
 
 app.listen(port, () => {
