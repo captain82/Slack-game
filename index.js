@@ -12,8 +12,7 @@ app.get("/players", (req, res) => {
 });
 
 app.post("/submit/:ca", (req, res) => {
-    var id = req.body.ca;
-    res.send("The id is ${req.body.ca}" + id);
+    res.redirect('/players');
 });
 
 app.listen(port, () => {
