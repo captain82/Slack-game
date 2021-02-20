@@ -27,9 +27,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Attach the adapter to the Express application as a middleware
-app.use('/slack/actions', (req,res)=>{
-    console.log(req);
-});
+app.use('/slack/actions', slackInteractions.expressMiddleware());
 
 // Attach the slash command handler
 app.post('/slack/commands', slackSlashCommand);
