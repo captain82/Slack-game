@@ -33,14 +33,17 @@ const web = new WebClient(slackAccessToken);
 // Initialize an Express application
 const app = express();
 
-app.use (function(req, res, next) {
-    req.rawBody = '';
-    req.setEncoding('utf8');
-    req.on('data', function(chunk) { req.rawBody += chunk });
-});
+// app.use(function (req, res, next) {
+//     req.rawBody = '';
+//     req.setEncoding('utf8');
+//     req.on('data', function (chunk) { req.rawBody += chunk });
+// });
 
-app.use(bodyParser.urlencoded({
-    extended: true}));
+// app.use(bodyParser.urlencoded({
+//     extended: true
+// }));
+
+app.use(express.json()); //Used to parse JSON bodies
 
 // Attach the adapter to the Express application as a middleware
 app.use('/slack/actions', slackInteractions.expressMiddleware());
