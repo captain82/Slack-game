@@ -218,7 +218,11 @@ const dialog = {
 
 // Slack slash command handler
 function slackSlashCommand(req, res, next) {
-    console.log('command requested')
+    console.log('command requested');
+    console.log(req.body.token);
+    console.log(slackVerificationToken);
+    console.log(req.body.command);
+
     if (req.body.token === slackVerificationToken && req.body.command === '/interactive-example') {
         const type = req.body.text.split(' ')[0];
         console.log('entered requested')
