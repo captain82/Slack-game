@@ -16,6 +16,16 @@ if (!slackVerificationToken || !slackAccessToken) {
     throw new Error('Slack verification token and access token are required to run this app.');
 }
 
+app.use(function(req, res, next){
+    var data = "";
+    req.on('data', function(chunk){ data += chunk})
+    req.on('end', function(){
+        req.rawBody = data;
+        req.jsonBody = JSON.parse(data);
+        next();
+    })
+ })
+
 function rawBodySaver(req, res, buf, encoding) {
     if (buf && buf.length) {
         req.rawBody = buf.toString(encoding || 'utf8')
@@ -31,10 +41,10 @@ const web = new WebClient(slackAccessToken);
 // Initialize an Express application
 const app = express();
 
-app.use(bodyParser.urlencoded({
-    extended: true,
-    verify: rawBodySaver
-}));
+// app.use(bodyParser.urlencoded({
+//     extended: true,
+//     verify: rawBodySaver
+// }));
 
 // Attach the adapter to the Express application as a middleware
 app.use('/slack/actions', slackInteractions.expressMiddleware());
