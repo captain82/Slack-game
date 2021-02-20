@@ -105,31 +105,35 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     return reply;
 });
 
-slackInteractions.action({action_id:'4'}, (payload, respond) => {
-    console.log('Action id 4');
+slackInteractions.action('zap', (payload, respond) => {
+    console.log(payload.actions[0].value);
 
-    // Use the data model to persist the action
-    users.findBySlackId(payload.user.id)
-        .then(user => user.setPolicyAgreementAndSave(payload.actions[0].value === 'accept'))
-        .then((user) => {
-            // After the asynchronous work is done, call `respond()` with a message object to update the
-            // message.
-            let confirmation;
-            if (user.agreedToPolicy) {
-                confirmation = 'Thank you for agreeing to the terms of service';
-            } else {
-                confirmation = 'You have denied the terms of service. You will no longer have access to this app.';
-            }
-            respond(ticTacInterface2);
-            //respond({ text: confirmation });
-        })
-        .catch((error) => {
-            // Handle errors
-            console.error(error);
-            respond({
-                text: 'An error occurred while recording your agreement choice.'
-            });
-        });
+    if(payload.actions[0].value === '4'){
+        respond(ticTacInterface2)
+    }
+
+    // // Use the data model to persist the action
+    // users.findBySlackId(payload.user.id)
+    //     .then(user => user.setPolicyAgreementAndSave(payload.actions[0].value === 'accept'))
+    //     .then((user) => {
+    //         // After the asynchronous work is done, call `respond()` with a message object to update the
+    //         // message.
+    //         let confirmation;
+    //         if (user.agreedToPolicy) {
+    //             confirmation = 'Thank you for agreeing to the terms of service';
+    //         } else {
+    //             confirmation = 'You have denied the terms of service. You will no longer have access to this app.';
+    //         }
+    //         respond(ticTacInterface2);
+    //         //respond({ text: confirmation });
+    //     })
+    //     .catch((error) => {
+    //         // Handle errors
+    //         console.error(error);
+    //         respond({
+    //             text: 'An error occurred while recording your agreement choice.'
+    //         });
+    //     });
 
     // Before the work completes, return a message object that is the same as the original but with
     // the interactive elements removed.
@@ -250,7 +254,8 @@ const interactiveButtons = {
 const ticTacInterface = {
     "blocks":[
         {
-			"type": "actions",
+            "type": "actions",
+            "callback_id": "zap",
 			"elements": [
 				{
 					"type": "button",
@@ -260,7 +265,7 @@ const ticTacInterface = {
 						"text": ":zap:"
 					},
 					"action_id": "1",
-					"value": "click_me_123"
+					"value": "1"
 				},
 				{
 					"type": "button",
@@ -270,7 +275,7 @@ const ticTacInterface = {
 						"text": ":zap:"
 					},
 					"action_id": "2",
-					"value": "click_me_123"
+					"value": "2"
 				},
 				{
 					"type": "button",
@@ -280,7 +285,7 @@ const ticTacInterface = {
 						"text": ":zap:"
 					},
 					"action_id": "3",
-					"value": "click_me_123"
+					"value": "3"
 				}
 			]
 		},
@@ -295,7 +300,7 @@ const ticTacInterface = {
 						"text": ":zap:"
 					},
 					"action_id": "4",
-					"value": "click_me_123"
+					"value": "4"
 				},
 				{
 					"type": "button",
@@ -305,7 +310,7 @@ const ticTacInterface = {
 						"text": ":zap:"
 					},
 					"action_id": "5",
-					"value": "click_me_123"
+					"value": "5"
 				},
 				{
 					"type": "button",
@@ -315,7 +320,7 @@ const ticTacInterface = {
 						"text": ":zap:"
 					},
 					"action_id": "6",
-					"value": "click_me_123"
+					"value": "5"
 				}
 			]
 		},
@@ -330,7 +335,7 @@ const ticTacInterface = {
 						"text": ":zap:"
 					},
 					"action_id": "7",
-					"value": "click_me_123"
+					"value": "6"
 				},
 				{
 					"type": "button",
@@ -340,7 +345,7 @@ const ticTacInterface = {
 						"text": ":zap:"
 					},
 					"action_id": "8",
-					"value": "click_me_123"
+					"value": "7"
 				},
 				{
 					"type": "button",
@@ -350,7 +355,7 @@ const ticTacInterface = {
 						"text": ":zap:"
 					},
 					"action_id": "9",
-					"value": "click_me_123"
+					"value": "8"
 				}
 			]
 		}
@@ -371,7 +376,7 @@ const ticTacInterface2 = {
 						"text": ":zap:"
 					},
 					"action_id": "1",
-					"value": "click_me_123"
+					"value": "1"
 				},
 				{
 					"type": "button",
@@ -381,7 +386,7 @@ const ticTacInterface2 = {
 						"text": ":zap:"
 					},
 					"action_id": "2",
-					"value": "click_me_123"
+					"value": "2"
 				},
 				{
 					"type": "button",
@@ -391,7 +396,7 @@ const ticTacInterface2 = {
 						"text": ":zap:"
 					},
 					"action_id": "3",
-					"value": "click_me_123"
+					"value": "3"
 				}
 			]
 		},
@@ -406,7 +411,7 @@ const ticTacInterface2 = {
 						"text": ":wave:"
 					},
 					"action_id": "4",
-					"value": "click_me_123"
+					"value": "4"
 				},
 				{
 					"type": "button",
@@ -416,7 +421,7 @@ const ticTacInterface2 = {
 						"text": ":zap:"
 					},
 					"action_id": "5",
-					"value": "click_me_123"
+					"value": "5"
 				},
 				{
 					"type": "button",
@@ -426,7 +431,7 @@ const ticTacInterface2 = {
 						"text": ":zap:"
 					},
 					"action_id": "6",
-					"value": "click_me_123"
+					"value": "6"
 				}
 			]
 		},
@@ -441,7 +446,7 @@ const ticTacInterface2 = {
 						"text": ":zap:"
 					},
 					"action_id": "7",
-					"value": "click_me_123"
+					"value": "7"
 				},
 				{
 					"type": "button",
@@ -451,7 +456,7 @@ const ticTacInterface2 = {
 						"text": ":zap:"
 					},
 					"action_id": "8",
-					"value": "click_me_123"
+					"value": "8"
 				},
 				{
 					"type": "button",
@@ -461,7 +466,7 @@ const ticTacInterface2 = {
 						"text": ":zap:"
 					},
 					"action_id": "9",
-					"value": "click_me_123"
+					"value": "9"
 				}
 			]
 		}
