@@ -179,6 +179,36 @@ const interactiveButtons = {
     }],
 };
 
+const ticTacInterface = {
+    blocks =[
+        {
+			type: "actions",
+			elements: [
+				{
+					type: "button",
+					text: {
+						type: "plain_text",
+						emoji: true,
+						text: "Approve"
+					},
+					style: "primary",
+					value: "click_me_123"
+				},
+				{
+					type: "button",
+					text: {
+						type: "plain_text",
+						emoji: true,
+						text: "Deny"
+					},
+					style: "danger",
+					value: "click_me_123"
+				}
+			]
+		}]
+
+}
+
 const interactiveMenu = {
     text: 'San Francisco is a diverse city with many different neighborhoods.',
     response_type: 'in_channel',
@@ -227,7 +257,7 @@ function slackSlashCommand(req, res, next) {
         console.log('entered requested')
         if (type === 'button') {
             console.log('Button requested')
-            res.json(interactiveButtons);
+            res.json(ticTacInterface);
         } else if (type === 'menu') {
             res.json(interactiveMenu);
         } else if (type === 'dialog') {
