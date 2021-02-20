@@ -189,7 +189,7 @@ const ticTacInterface = {
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
-						"text": "Approve"
+						"text": ":zap:"
 					},
 					"style": "primary",
 					"value": "click_me_123"
@@ -199,7 +199,17 @@ const ticTacInterface = {
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
-						"text": "Deny"
+						"text": ":zap:"
+					},
+					"style": "danger",
+					"value": "click_me_123"
+                },
+                {
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"emoji": true,
+						"text": ":zap:"
 					},
 					"style": "danger",
 					"value": "click_me_123"
