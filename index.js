@@ -109,7 +109,7 @@ var selectedList = [];
 slackInteractions.action({within:'block_actions'}, (payload, respond) => {
     console.log(payload.actions[0].value);
 
-    selectedList.push(payload.actions[0].value);
+    //selectedList.push(payload.actions[0].value);
     console.log("working");
 
 
