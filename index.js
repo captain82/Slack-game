@@ -53,7 +53,8 @@ slackInteractions.action('accept_tos', (payload, respond) => {
             } else {
                 confirmation = 'You have denied the terms of service. You will no longer have access to this app.';
             }
-            respond({ text: confirmation });
+            respond.json(ticTacInterface);
+            //respond({ text: confirmation });
         })
         .catch((error) => {
             // Handle errors
@@ -268,7 +269,7 @@ function slackSlashCommand(req, res, next) {
         console.log('entered requested')
         if (type === 'button') {
             console.log('Button requested')
-            res.json(ticTacInterface);
+            res.json(interactiveButtons);
         } else if (type === 'menu') {
             res.json(interactiveMenu);
         } else if (type === 'dialog') {
