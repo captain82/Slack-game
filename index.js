@@ -240,7 +240,7 @@ const dialog = {
 // Slack slash command handler
 function slackSlashCommand(req, res, next) {
     console.log('command requested');
-    console.log(req.body.token);
+    console.log(req);
     console.log(slackVerificationToken);
     console.log(req.body.command);
 
