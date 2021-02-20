@@ -24,10 +24,11 @@ const web = new WebClient(slackAccessToken);
 
 // Initialize an Express application
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
 
 // Attach the adapter to the Express application as a middleware
 app.use('/slack/actions', slackInteractions.expressMiddleware());
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Attach the slash command handler
 app.post('/slack/commands', slackSlashCommand);
