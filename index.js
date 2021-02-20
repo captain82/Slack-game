@@ -105,10 +105,10 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     return reply;
 });
 
-slackInteractions.action('zap', (payload, respond) => {
+slackInteractions.action({type:'block_actions'}, (payload, respond) => {
     console.log(payload.actions[0].value);
 
-    if(payload.actions[0].value === '4'){
+    if(payload.actions[0].value == '4'){
         respond(ticTacInterface2)
     }
 
@@ -255,7 +255,6 @@ const ticTacInterface = {
     "blocks":[
         {
             "type": "actions",
-            "callback_id": "zap",
 			"elements": [
 				{
 					"type": "button",
