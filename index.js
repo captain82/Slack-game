@@ -117,6 +117,10 @@ slackInteractions.action({within:'block_actions'}, (payload, respond) => {
     //     //console.log(selectedList[i]);
     //   }
 
+    selectedList.forEach(function(entry) {
+        console.log(entry);
+      });
+
     if(payload.actions[0].value == '4'){
         respond(ticTacInterface2)
     }
