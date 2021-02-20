@@ -10,7 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "@slack/client": "^4.1.0",
+    "@slack/interactive-messages": "*",
+    "axios": "^0.21.1",
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3"
   },
   "engines": {
     "node": "12.18.4"
