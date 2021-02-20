@@ -113,9 +113,9 @@ slackInteractions.action({within:'block_actions'}, (payload, respond) => {
     console.log("working");
 
 
-    for(var i = 0; i < foo.length; i++){
-        //console.log(selectedList[i]);
-      }
+    // for(var i = 0; i < foo.length; i++){
+    //     //console.log(selectedList[i]);
+    //   }
 
     if(payload.actions[0].value == '4'){
         respond(ticTacInterface2)
