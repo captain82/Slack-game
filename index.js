@@ -104,12 +104,12 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     return reply;
 });
 
-var selectedList = [];
+var selectedList = new Set();
 
 slackInteractions.action({within:'block_actions'}, (payload, respond) => {
     console.log(payload.actions[0].value);
 
-    selectedList.push(payload.actions[0].value.toString());
+    selectedList.add(payload.actions[0].value.toString());
     console.log("working");
 
 
@@ -117,9 +117,7 @@ slackInteractions.action({within:'block_actions'}, (payload, respond) => {
     //     //console.log(selectedList[i]);
     //   }
 
-    selectedList.forEach(function(entry) {
-        console.log(entry);
-      });
+    console.log(selectedList);
 
     if(payload.actions[0].value == '4'){
         respond(ticTacInterface2)
