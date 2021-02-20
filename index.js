@@ -192,7 +192,6 @@ const ticTacInterface = {
 						"emoji": true,
 						"text": ":zap:"
 					},
-					"style": "primary",
 					"value": "click_me_123"
 				},
 				{
@@ -202,17 +201,79 @@ const ticTacInterface = {
 						"emoji": true,
 						"text": ":zap:"
 					},
-					"style": "danger",
 					"value": "click_me_123"
-                },
-                {
+				},
+				{
 					"type": "button",
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
 						"text": ":zap:"
 					},
-					"style": "danger",
+					"value": "click_me_123"
+				}
+			]
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"emoji": true,
+						"text": ":zap:"
+					},
+					"value": "click_me_123"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"emoji": true,
+						"text": ":zap:"
+					},
+					"value": "click_me_123"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"emoji": true,
+						"text": ":zap:"
+					},
+					"value": "click_me_123"
+				}
+			]
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"emoji": true,
+						"text": ":zap:"
+					},
+					"value": "click_me_123"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"emoji": true,
+						"text": ":zap:"
+					},
+					"value": "click_me_123"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"emoji": true,
+						"text": ":zap:"
+					},
 					"value": "click_me_123"
 				}
 			]
