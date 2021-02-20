@@ -11,12 +11,13 @@ require('dotenv').config()
 // Read the verification token from the environment variables
 const slackVerificationToken = process.env.SLACK_VERIFICATION_TOKEN;
 const slackAccessToken = process.env.SLACK_ACCESS_TOKEN;
+const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 if (!slackVerificationToken || !slackAccessToken) {
     throw new Error('Slack verification token and access token are required to run this app.');
 }
 
 // Create the adapter using the app's verification token
-const slackInteractions = createMessageAdapter(slackVerificationToken);
+const slackInteractions = createMessageAdapter(slackSigningSecret);
 
 // Create a Slack Web API client
 const web = new WebClient(slackAccessToken);
