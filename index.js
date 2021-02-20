@@ -269,7 +269,7 @@ function slackSlashCommand(req, res, next) {
         console.log('entered requested')
         if (type === 'button') {
             console.log('Button requested')
-            res.json(ticTacInterface);
+            res.json(interactiveButtons);
         } else if (type === 'menu') {
             res.json(interactiveMenu);
         } else if (type === 'dialog') {
