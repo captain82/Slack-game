@@ -155,22 +155,22 @@ slackInteractions.action({ type: 'dialog_submission' }, (payload, respond) => {
 
 // Example interactive messages
 const interactiveButtons = {
-    text: 'The terms of service for this app are _not really_ here: <https://unsplash.com/photos/bmmcfZqSjBU>',
+    text: 'You are about to start the most terrific game of the entire gaming history',
     response_type: 'in_channel',
     attachments: [{
-        text: 'Do you accept the terms of service?',
+        text: 'Buckle up fellas',
         callback_id: 'accept_tos',
         actions: [
             {
                 name: 'accept_tos',
-                text: 'Yes',
+                text: 'Bring it up to me',
                 value: 'accept',
                 type: 'button',
                 style: 'primary',
             },
             {
                 name: 'accept_tos',
-                text: 'No',
+                text: 'Leave it, i am afraid',
                 value: 'deny',
                 type: 'button',
                 style: 'danger',
