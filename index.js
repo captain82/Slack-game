@@ -26,7 +26,6 @@ const app = express();
 
 // Attach the adapter to the Express application as a middleware
 app.use('/slack/actions', slackInteractions.expressMiddleware());
-
 // Attach the slash command handler
 app.post('/slack/commands', bodyParser.urlencoded({ extended: false }), slackSlashCommand);
 
@@ -105,7 +104,7 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     return reply;
 });
 
-slackInteractions.action({type:'block_actions'}, (payload, respond) => {
+slackInteractions.action({within:'block_actions'}, (payload, respond) => {
     console.log(payload.actions[0].value);
 
     if(payload.actions[0].value == '4'){
