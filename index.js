@@ -7,21 +7,12 @@ const { users, neighborhoods } = require('./models');
 const axios = require('axios');
 require('dotenv').config()
 
-
 // Read the verification token from the environment variables
 const slackVerificationToken = process.env.SLACK_VERIFICATION_TOKEN;
 const slackAccessToken = process.env.SLACK_ACCESS_TOKEN;
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 if (!slackVerificationToken || !slackAccessToken) {
     throw new Error('Slack verification token and access token are required to run this app.');
-}
-
-
-
-function rawBodySaver(req, res, buf, encoding) {
-    if (buf && buf.length) {
-        req.rawBody = buf.toString(encoding || 'utf8')
-    }
 }
 
 // Create the adapter using the app's verification token
@@ -33,23 +24,11 @@ const web = new WebClient(slackAccessToken);
 // Initialize an Express application
 const app = express();
 
-// app.use(function (req, res, next) {
-//     req.rawBody = '';
-//     req.setEncoding('utf8');
-//     req.on('data', function (chunk) { req.rawBody += chunk });
-// });
-
-// app.use(bodyParser.urlencoded({
-//     extended: true
-// }));
-
-app.use(express.json()); //Used to parse JSON bodies
-
 // Attach the adapter to the Express application as a middleware
 app.use('/slack/actions', slackInteractions.expressMiddleware());
 
 // Attach the slash command handler
-app.post('/slack/commands', slackSlashCommand);
+app.post('/slack/commands', bodyParser.urlencoded({ extended: false }), slackSlashCommand);
 
 // Start the express application server
 const port = process.env.PORT || 0;
