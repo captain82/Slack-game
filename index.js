@@ -180,32 +180,33 @@ const interactiveButtons = {
 };
 
 const ticTacInterface = {
-    blocks =[
+    "blocks":[
         {
-			type: "actions",
-			elements: [
+			"type": "actions",
+			"elements": [
 				{
-					type: "button",
-					text: {
-						type: "plain_text",
-						emoji: true,
-						text: "Approve"
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"emoji": true,
+						"text": "Approve"
 					},
-					style: "primary",
-					value: "click_me_123"
+					"style": "primary",
+					"value": "click_me_123"
 				},
 				{
-					type: "button",
-					text: {
-						type: "plain_text",
-						emoji: true,
-						text: "Deny"
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"emoji": true,
+						"text": "Deny"
 					},
-					style: "danger",
-					value: "click_me_123"
+					"style": "danger",
+					"value": "click_me_123"
 				}
 			]
-		}]
+		}
+    ]
 
 }
 
