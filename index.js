@@ -114,7 +114,7 @@ slackInteractions.action({within:'block_actions'}, (payload, respond) => {
 
 
     for(var i = 0; i < foo.length; i++){
-        console.log(i);
+        console.log(selectedList[i]);
       }
 
     if(payload.actions[0].value == '4'){
