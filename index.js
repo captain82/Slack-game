@@ -25,7 +25,7 @@ const web = new WebClient(slackAccessToken);
 // Initialize an Express application
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 // Attach the adapter to the Express application as a middleware
 app.use('/slack/actions', slackInteractions.expressMiddleware());
