@@ -84,7 +84,7 @@ slackInteractions.action({ within: 'block_actions' }, (payload, respond) => {
 
     console.log(selectedList);
 
-    respond(ticTacInterface2);
+    respond(getInterface());
 
     // // Use the data model to persist the action
     // users.findBySlackId(payload.user.id)
@@ -446,7 +446,11 @@ var ticTacInterface2 = {
     ]
 }
 
-console.log(ticTacInterface2);
+function getInterface(){
+    return ticTacInterface2;
+}
+
+//console.log(ticTacInterface2);
 
 function getEmoji(index) {
     console.log(index);
