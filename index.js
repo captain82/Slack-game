@@ -70,40 +70,6 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     return reply;
 });
 
-slackInteractions.action('accept_tos', (payload, respond) => {
-    console.log("hurray");
-    console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
-
-    // Use the data model to persist the action
-    users.findBySlackId(payload.user.id)
-        .then(user => user.setPolicyAgreementAndSave(payload.actions[0].value === 'accept'))
-        .then((user) => {
-            // After the asynchronous work is done, call `respond()` with a message object to update the
-            // message.
-            let confirmation;
-            if (user.agreedToPolicy) {
-                confirmation = 'Thank you for agreeing to the terms of service';
-            } else {
-                confirmation = 'You have denied the terms of service. You will no longer have access to this app.';
-            }
-            respond(ticTacInterface);
-            //respond({ text: confirmation });
-        })
-        .catch((error) => {
-            // Handle errors
-            console.error(error);
-            respond({
-                text: 'An error occurred while recording your agreement choice.'
-            });
-        });
-
-    // Before the work completes, return a message object that is the same as the original but with
-    // the interactive elements removed.
-    const reply = payload.original_message;
-    delete reply.attachments[0].actions;
-    return reply;
-});
-
 var selectedList = new Set();
 
 slackInteractions.action({ within: 'block_actions' }, (payload, respond) => {
