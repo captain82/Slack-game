@@ -484,8 +484,10 @@ const ticTacInterface2 = {
 
 function getEmoji(index){
     if(selectedList.has(index.toString)){
+        console.log("true");
         return ":wave:"
     }else{
+        console.log("false");
         return ":zap:"
     }
 }
