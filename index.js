@@ -72,20 +72,24 @@ slackInteractions.action('accept_tos', (payload, respond) => {
 });
 
 var selectedList = new Set();
+var userId = "";
 
 slackInteractions.action({ within: 'block_actions' }, (payload, respond) => {
     //console.log(payload.actions[0].value);
+    if (userId == "" || userId != payload.user.id) {
+        console.log(payload.user.id);
+        userId = payload.user.id
+        selectedList.add(payload.actions[0].value.toString());
+        //console.log("working");
 
-    selectedList.add(payload.actions[0].value.toString());
-    //console.log("working");
+        // for(var i = 0; i < foo.length; i++){
+        //     //console.log(selectedList[i]);
+        //   }
 
-    // for(var i = 0; i < foo.length; i++){
-    //     //console.log(selectedList[i]);
-    //   }
+        console.log(selectedList);
 
-    console.log(selectedList);
-
-    respond(getInterface());
+        respond(getInterface());
+    }
 
     // // Use the data model to persist the action
     // users.findBySlackId(payload.user.id)
@@ -447,7 +451,7 @@ var ticTacInterface2 = {
     ]
 }
 
-function getInterface(){
+function getInterface() {
     return {
         "blocks": [
             {
