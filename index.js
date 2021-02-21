@@ -380,7 +380,7 @@ const ticTacInterface2 = {
                     "text": {
                         "type": "plain_text",
                         "emoji": true,
-                        "text": getEmoji(1)
+                        "text": getEmoji("1")
                     },
                     "action_id": "1",
                     "value": "1"
@@ -390,7 +390,7 @@ const ticTacInterface2 = {
                     "text": {
                         "type": "plain_text",
                         "emoji": true,
-                        "text": getEmoji(2)
+                        "text": getEmoji("2")
                     },
                     "action_id": "2",
                     "value": "2"
@@ -400,7 +400,7 @@ const ticTacInterface2 = {
                     "text": {
                         "type": "plain_text",
                         "emoji": true,
-                        "text": getEmoji(3)
+                        "text": getEmoji("3")
                     },
                     "action_id": "3",
                     "value": "3"
@@ -415,7 +415,7 @@ const ticTacInterface2 = {
                     "text": {
                         "type": "plain_text",
                         "emoji": true,
-                        "text": getEmoji(4)
+                        "text": getEmoji("4")
                     },
                     "action_id": "4",
                     "value": "4"
@@ -425,7 +425,7 @@ const ticTacInterface2 = {
                     "text": {
                         "type": "plain_text",
                         "emoji": true,
-                        "text": getEmoji(5)
+                        "text": getEmoji("5")
                     },
                     "action_id": "5",
                     "value": "5"
@@ -435,7 +435,7 @@ const ticTacInterface2 = {
                     "text": {
                         "type": "plain_text",
                         "emoji": true,
-                        "text": getEmoji(6)
+                        "text": getEmoji("6")
                     },
                     "action_id": "6",
                     "value": "6"
@@ -450,7 +450,7 @@ const ticTacInterface2 = {
                     "text": {
                         "type": "plain_text",
                         "emoji": true,
-                        "text": getEmoji(7)
+                        "text": getEmoji("7")
                     },
                     "action_id": "7",
                     "value": "7"
@@ -460,7 +460,7 @@ const ticTacInterface2 = {
                     "text": {
                         "type": "plain_text",
                         "emoji": true,
-                        "text": getEmoji(8)
+                        "text": getEmoji("8")
                     },
                     "action_id": "8",
                     "value": "8"
@@ -470,7 +470,7 @@ const ticTacInterface2 = {
                     "text": {
                         "type": "plain_text",
                         "emoji": true,
-                        "text": getEmoji(9)
+                        "text": getEmoji("9")
                     },
                     "action_id": "9",
                     "value": "9"
