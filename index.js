@@ -446,6 +446,8 @@ var ticTacInterface2 = {
     ]
 }
 
+console.log(ticTacInterface2);
+
 function getEmoji(index) {
     console.log(index);
     if (selectedList.has(index)) {
