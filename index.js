@@ -447,7 +447,115 @@ var ticTacInterface2 = {
 }
 
 function getInterface(){
-    return ticTacInterface2;
+    return {
+        "blocks": [
+            {
+                "type": "actions",
+                "elements": [
+                    {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "emoji": true,
+                            "text": getEmoji("1")
+                        },
+                        "action_id": "1",
+                        "value": "1"
+                    },
+                    {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "emoji": true,
+                            "text": getEmoji("2")
+                        },
+                        "action_id": "2",
+                        "value": "2"
+                    },
+                    {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "emoji": true,
+                            "text": getEmoji("3")
+                        },
+                        "action_id": "3",
+                        "value": "3"
+                    }
+                ]
+            },
+            {
+                "type": "actions",
+                "elements": [
+                    {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "emoji": true,
+                            "text": getEmoji("4")
+                        },
+                        "action_id": "4",
+                        "value": "4"
+                    },
+                    {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "emoji": true,
+                            "text": getEmoji("5")
+                        },
+                        "action_id": "5",
+                        "value": "5"
+                    },
+                    {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "emoji": true,
+                            "text": getEmoji("6")
+                        },
+                        "action_id": "6",
+                        "value": "6"
+                    }
+                ]
+            },
+            {
+                "type": "actions",
+                "elements": [
+                    {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "emoji": true,
+                            "text": getEmoji("7")
+                        },
+                        "action_id": "7",
+                        "value": "7"
+                    },
+                    {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "emoji": true,
+                            "text": getEmoji("8")
+                        },
+                        "action_id": "8",
+                        "value": "8"
+                    },
+                    {
+                        "type": "button",
+                        "text": {
+                            "type": "plain_text",
+                            "emoji": true,
+                            "text": getEmoji("9")
+                        },
+                        "action_id": "9",
+                        "value": "9"
+                    }
+                ]
+            }
+        ]
+    }
 }
 
 //console.log(ticTacInterface2);
