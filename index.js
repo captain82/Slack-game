@@ -336,7 +336,7 @@ const ticTacInterface = {
 
 }
 
-const ticTacInterface2 = {
+var ticTacInterface2 = {
     "blocks": [
         {
             "type": "actions",
