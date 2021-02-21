@@ -106,7 +106,7 @@ slackInteractions.action('accept_tos', (payload, respond) => {
 
 var selectedList = new Set();
 
-slackInteractions.action({within:'block_actions'}, (payload, respond) => {
+slackInteractions.action({ within: 'block_actions' }, (payload, respond) => {
     console.log(payload.actions[0].value);
 
     selectedList.add(payload.actions[0].value.toString());
@@ -118,9 +118,7 @@ slackInteractions.action({within:'block_actions'}, (payload, respond) => {
 
     console.log(selectedList);
 
-    if(payload.actions[0].value == '4'){
-        respond(ticTacInterface2)
-    }
+    respond(ticTacInterface2);
 
     // // Use the data model to persist the action
     // users.findBySlackId(payload.user.id)
@@ -262,231 +260,231 @@ const interactiveButtons = {
 };
 
 const ticTacInterface = {
-    "blocks":[
+    "blocks": [
         {
             "type": "actions",
-			"elements": [
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": ":zap:"
-					},
-					"action_id": "1",
-					"value": "1"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": ":zap:"
-					},
-					"action_id": "2",
-					"value": "2"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": ":zap:"
-					},
-					"action_id": "3",
-					"value": "3"
-				}
-			]
-		},
-		{
-			"type": "actions",
-			"elements": [
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": ":zap:"
-					},
-					"action_id": "4",
-					"value": "4"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": ":zap:"
-					},
-					"action_id": "5",
-					"value": "5"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": ":zap:"
-					},
-					"action_id": "6",
-					"value": "5"
-				}
-			]
-		},
-		{
-			"type": "actions",
-			"elements": [
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": ":zap:"
-					},
-					"action_id": "7",
-					"value": "6"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": ":zap:"
-					},
-					"action_id": "8",
-					"value": "7"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": ":zap:"
-					},
-					"action_id": "9",
-					"value": "8"
-				}
-			]
-		}
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": ":zap:"
+                    },
+                    "action_id": "1",
+                    "value": "1"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": ":zap:"
+                    },
+                    "action_id": "2",
+                    "value": "2"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": ":zap:"
+                    },
+                    "action_id": "3",
+                    "value": "3"
+                }
+            ]
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": ":zap:"
+                    },
+                    "action_id": "4",
+                    "value": "4"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": ":zap:"
+                    },
+                    "action_id": "5",
+                    "value": "5"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": ":zap:"
+                    },
+                    "action_id": "6",
+                    "value": "5"
+                }
+            ]
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": ":zap:"
+                    },
+                    "action_id": "7",
+                    "value": "6"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": ":zap:"
+                    },
+                    "action_id": "8",
+                    "value": "7"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": ":zap:"
+                    },
+                    "action_id": "9",
+                    "value": "8"
+                }
+            ]
+        }
     ]
 
 }
 
 const ticTacInterface2 = {
-    "blocks":[
+    "blocks": [
         {
-			"type": "actions",
-			"elements": [
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": getEmoji(1)
-					},
-					"action_id": "1",
-					"value": "1"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": getEmoji(2)
-					},
-					"action_id": "2",
-					"value": "2"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": getEmoji(3)
-					},
-					"action_id": "3",
-					"value": "3"
-				}
-			]
-		},
-		{
-			"type": "actions",
-			"elements": [
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": getEmoji(4)
-					},
-					"action_id": "4",
-					"value": "4"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": getEmoji(5)
-					},
-					"action_id": "5",
-					"value": "5"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": getEmoji(6)
-					},
-					"action_id": "6",
-					"value": "6"
-				}
-			]
-		},
-		{
-			"type": "actions",
-			"elements": [
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": getEmoji(7)
-					},
-					"action_id": "7",
-					"value": "7"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": getEmoji(8)
-					},
-					"action_id": "8",
-					"value": "8"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": getEmoji(9)
-					},
-					"action_id": "9",
-					"value": "9"
-				}
-			]
-		}
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": getEmoji(1)
+                    },
+                    "action_id": "1",
+                    "value": "1"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": getEmoji(2)
+                    },
+                    "action_id": "2",
+                    "value": "2"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": getEmoji(3)
+                    },
+                    "action_id": "3",
+                    "value": "3"
+                }
+            ]
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": getEmoji(4)
+                    },
+                    "action_id": "4",
+                    "value": "4"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": getEmoji(5)
+                    },
+                    "action_id": "5",
+                    "value": "5"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": getEmoji(6)
+                    },
+                    "action_id": "6",
+                    "value": "6"
+                }
+            ]
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": getEmoji(7)
+                    },
+                    "action_id": "7",
+                    "value": "7"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": getEmoji(8)
+                    },
+                    "action_id": "8",
+                    "value": "8"
+                },
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "emoji": true,
+                        "text": getEmoji(9)
+                    },
+                    "action_id": "9",
+                    "value": "9"
+                }
+            ]
+        }
     ]
 }
 
-function getEmoji(index){
-    if(selectedList.has(index.toString)){
+function getEmoji(index) {
+    if (selectedList.has(index.toString)) {
         console.log("true");
         return ":wave:"
-    }else{
+    } else {
         console.log("false");
         return ":zap:"
     }
