@@ -112,7 +112,6 @@ slackInteractions.action({within:'block_actions'}, (payload, respond) => {
     selectedList.add(payload.actions[0].value.toString());
     console.log("working");
 
-
     // for(var i = 0; i < foo.length; i++){
     //     //console.log(selectedList[i]);
     //   }
@@ -383,7 +382,7 @@ const ticTacInterface2 = {
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
-						"text": ":zap:"
+						"text": getEmoji(1)
 					},
 					"action_id": "1",
 					"value": "1"
@@ -393,7 +392,7 @@ const ticTacInterface2 = {
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
-						"text": ":zap:"
+						"text": getEmoji(2)
 					},
 					"action_id": "2",
 					"value": "2"
@@ -403,7 +402,7 @@ const ticTacInterface2 = {
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
-						"text": ":zap:"
+						"text": getEmoji(3)
 					},
 					"action_id": "3",
 					"value": "3"
@@ -418,7 +417,7 @@ const ticTacInterface2 = {
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
-						"text": ":wave:"
+						"text": getEmoji(4)
 					},
 					"action_id": "4",
 					"value": "4"
@@ -428,7 +427,7 @@ const ticTacInterface2 = {
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
-						"text": ":zap:"
+						"text": getEmoji(5)
 					},
 					"action_id": "5",
 					"value": "5"
@@ -438,7 +437,7 @@ const ticTacInterface2 = {
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
-						"text": ":zap:"
+						"text": getEmoji(6)
 					},
 					"action_id": "6",
 					"value": "6"
@@ -453,7 +452,7 @@ const ticTacInterface2 = {
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
-						"text": ":zap:"
+						"text": getEmoji(7)
 					},
 					"action_id": "7",
 					"value": "7"
@@ -463,7 +462,7 @@ const ticTacInterface2 = {
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
-						"text": ":zap:"
+						"text": getEmoji(8)
 					},
 					"action_id": "8",
 					"value": "8"
@@ -473,7 +472,7 @@ const ticTacInterface2 = {
 					"text": {
 						"type": "plain_text",
 						"emoji": true,
-						"text": ":zap:"
+						"text": getEmoji(9)
 					},
 					"action_id": "9",
 					"value": "9"
@@ -481,7 +480,14 @@ const ticTacInterface2 = {
 			]
 		}
     ]
+}
 
+function getEmoji(index){
+    if(selectedList.has(index.toString)){
+        return ":wave:"
+    }else{
+        return ":zap:"
+    }
 }
 
 const interactiveMenu = {
