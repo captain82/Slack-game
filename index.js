@@ -73,10 +73,10 @@ slackInteractions.action('accept_tos', (payload, respond) => {
 var selectedList = new Set();
 
 slackInteractions.action({ within: 'block_actions' }, (payload, respond) => {
-    console.log(payload.actions[0].value);
+    //console.log(payload.actions[0].value);
 
     selectedList.add(payload.actions[0].value.toString());
-    console.log("working");
+    //console.log("working");
 
     // for(var i = 0; i < foo.length; i++){
     //     //console.log(selectedList[i]);
@@ -448,7 +448,7 @@ const ticTacInterface2 = {
 
 function getEmoji(index) {
     console.log(index);
-    if (selectedList.has(index.toString)) {
+    if (selectedList.has(index)) {
         console.log("true");
         return ":wave:"
     } else {
