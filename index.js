@@ -37,6 +37,7 @@ http.createServer(app).listen(port, () => {
 
 // Slack interactive message handlers
 slackInteractions.action('accept_tos', (payload, respond) => {
+    selectedList.clear();
     console.log("hurray");
     console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
 
