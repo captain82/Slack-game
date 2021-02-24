@@ -8,9 +8,8 @@ const axios = require('axios');
 require('dotenv').config()
 
 // Read the verification token from the environment variables
-const slackVerificationToken = process.env.SLACK_VERIFICATION_TOKEN;
-const slackAccessToken = process.env.SLACK_ACCESS_TOKEN;
-const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
+const slackAccessToken = process.env.FURLENCO_SLACK_ACCESS_TOKEN;
+const slackSigningSecret = process.env.FURLENCO_SLACK_SIGNING_SECRET;
 if (!slackSigningSecret || !slackAccessToken) {
     throw new Error('Slack verification token and access token are required to run this app.');
 }
