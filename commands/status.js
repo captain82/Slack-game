@@ -18,3 +18,5 @@ function status(gameManager, channelId, res) {
 
     sendMessage(res,headlineMsg,[board,currentPlayerMsg]);
 }
+
+module.exports = status;
