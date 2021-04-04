@@ -11,6 +11,8 @@ module.exports.verifySlackSigningSecret = function (req, res, next) {
         const sigBaseString = `v0:${slackTimestamp}:${req.rawBody}`;
         const hmac = crypto.createHmac('sha256', config.SIGNING_SECRET);
         const hmacSignature = `v0=${hmac.update(sigBaseString).digest('hex')}`;
+        console.log(hmacSignature);
+        console.log(slackSignature);
         if (hmacSignature == slackSignature) {
             next();
             return;
