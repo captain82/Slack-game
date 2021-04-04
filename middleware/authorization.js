@@ -4,7 +4,6 @@ const config = require('../config');
 const crypto = require('crypto');
 
 module.exports.verifySlackSigningSecret = function (req, res, next) {
-    console.log(req);
     if (req.headers['x-slack-signature']) {
         const slackSignature = req.headers['x-slack-signature'];
         const slackTimestamp = req.headers['x-slack-request-timestamp'];
