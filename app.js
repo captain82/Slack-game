@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ verify: rawBodyBuilder, extended: true }));
 app.use(bodyParser.raw({ verify: rawBodyBuilder, type: () => true }));
 app.use(verifySlackSigningSecret);
 
-app.post('/interactive-example', (req, res) => {
+app.post('/commands',bodyParser.urlencoded({ extended: false }), (req, res) => {
     console.log(req.body);
     res.set('content-type', 'application/json');
     const channelId = req.body.channel_id;
