@@ -17,6 +17,9 @@
     "dotenv": "^5.0.1",
     "express": "^4.17.1"
   },
+  "directories": {
+    "lib": "lib"
+  },
   "engines": {
     "node": "12.18.4"
   }
