@@ -21,6 +21,8 @@ function _buildMessage(mainMessage,attachments){
 function sendMessage(res,mainMessage,attachmentMessages){
     const attachments = _buildAttachments(attachmentMessages);
     const message = _buildMessage(mainMessage,attachments);
+    console.log(attachments);
+    console.log(message);
     res.status(200).json(message);
 }
 
