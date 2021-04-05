@@ -14,7 +14,7 @@ function _buildMessage(mainMessage,attachments){
     return{
         'response_type':'in_channel',
         'text': mainMessage,
-        'attachments':ticTacInterface
+        'attachments':attachments
     };
 }
 
@@ -134,7 +134,7 @@ function sendMessage(res,mainMessage,attachmentMessages){
     const message = _buildMessage(mainMessage,attachments);
     console.log(attachments);
     console.log(message);
-    res.status(200).json(message);
+    res(ticTacInterface);
 }
 
 module.exports = sendMessage;
