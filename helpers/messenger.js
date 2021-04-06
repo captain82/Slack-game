@@ -118,7 +118,7 @@ const ticTacInterface = {
                     "text": {
                         "type": "plain_text",
                         "emoji": true,
-                        "text": ":zap:"
+                        "text": ":wave:"
                     },
                     "action_id": "9",
                     "value": "8"
