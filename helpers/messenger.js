@@ -134,7 +134,7 @@ function sendMessage(res,mainMessage,attachmentMessages){
     const message = _buildMessage(mainMessage,attachments);
     console.log(attachments);
     console.log(message);
-    res(ticTacInterface);
+    res.status(200).json(ticTacInterface);
 }
 
 module.exports = sendMessage;
