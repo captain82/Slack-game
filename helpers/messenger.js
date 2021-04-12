@@ -132,8 +132,6 @@ const ticTacInterface = {
 function sendMessage(res,mainMessage,attachmentMessages){
     const attachments = _buildAttachments(attachmentMessages);
     const message = _buildMessage(mainMessage,attachments);
-    console.log(attachments);
-    console.log(message);
     res.status(200).json(ticTacInterface);
 }
 
