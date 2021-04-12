@@ -18,6 +18,7 @@ let gameManager;
 const slackClient = new WebClient(config.SLACK_API_TOKEN);
 slackClient.users.list().then((res) => {
     for (const user of res.members) {
+        console.log(user);
         workspaceUsers[user.name] = user.id;
     }
     gameManager = new GameManager(workspaceUsers);
