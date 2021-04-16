@@ -43,7 +43,7 @@ app.post('/slack/commands', (req, res) => {
     const params = req.body.text.split(/[ ,]+/);
     switch (params[0]) {
         case 'play':
-            sendJsonMessage(res,getWelcomeMessage());
+            sendJsonMessage(res, getWelcomeMessage());
             //play(gameManager, channelId, userId, params, res);
             break;
         case 'status':
@@ -64,7 +64,7 @@ app.post('/slack/commands', (req, res) => {
     }
 });
 
-function getWelcomeMessage(){
+function getWelcomeMessage() {
     return {
         text: 'You are about to start the most terrific game of the entire gaming history',
         response_type: 'in_channel',
