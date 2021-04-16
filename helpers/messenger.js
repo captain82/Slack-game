@@ -126,13 +126,16 @@ const ticTacInterface = {
             ]
         }
     ]
-
 }
 
 function sendMessage(res,mainMessage,attachmentMessages){
     const attachments = _buildAttachments(attachmentMessages);
     const message = _buildMessage(mainMessage,attachments);
     res.status(200).json(ticTacInterface);
+}
+
+function sendJsonMessage(res,json){
+    res.status(200).json(json);
 }
 
 module.exports = sendMessage;

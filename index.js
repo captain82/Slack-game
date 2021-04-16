@@ -80,13 +80,10 @@ slackInteractions.action({ within: 'block_actions' }, (payload, respond) => {
         userId = payload.user.id
         selectedList.add(payload.actions[0].value.toString());
         //console.log("working");
-
         // for(var i = 0; i < foo.length; i++){
         //     //console.log(selectedList[i]);
         //   }
-
         console.log(selectedList);
-
         respond(getInterface());
     }
 

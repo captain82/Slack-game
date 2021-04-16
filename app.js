@@ -9,6 +9,7 @@ const { move, play, end, status, help } = require('./commands/index');
 const { verifySlackSigningSecret } = require('./middleware/authorization');
 const { rawBodyBuilder } = require('./helpers/raw-body-builder');
 const GameManager = require('./lib/game-manager');
+const sendMessage = require('./helpers/messenger');
 
 let workspaceUsers = {};
 let gameManager;
@@ -41,7 +42,8 @@ app.post('/slack/commands', (req, res) => {
     const params = req.body.text.split(/[ ,]+/);
     switch (params[0]) {
         case 'play':
-            play(gameManager, channelId, userId, params, res);
+            sendMessage(sendJsonMessage(res,getWelcomeMessage()));
+            //play(gameManager, channelId, userId, params, res);
             break;
         case 'status':
             status(gameManager, channelId, res);
@@ -60,6 +62,33 @@ app.post('/slack/commands', (req, res) => {
             break;
     }
 });
+
+function getWelcomeMessage(){
+    return {
+        text: 'You are about to start the most terrific game of the entire gaming history',
+        response_type: 'in_channel',
+        attachments: [{
+            text: 'Buckle up fellas',
+            callback_id: 'accept_tos',
+            actions: [
+                {
+                    name: 'accept_tos',
+                    text: 'Bring it up to me',
+                    value: 'accept',
+                    type: 'button',
+                    style: 'primary',
+                },
+                {
+                    name: 'accept_tos',
+                    text: 'Leave it, i am afraid',
+                    value: 'deny',
+                    type: 'button',
+                    style: 'danger',
+                },
+            ],
+        }],
+    }
+}
 
 app.get('/', function (req, res) {
     res.send(200);

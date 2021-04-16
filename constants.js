@@ -12,6 +12,30 @@ module.exports = {
         '8': ':zap:',
         '9': ':zap:'
     },
+    interactiveButtons = {
+        text: 'Hey ',
+        response_type: 'in_channel',
+        attachments: [{
+            text: 'Buckle up fellas',
+            callback_id: 'accept_tos',
+            actions: [
+                {
+                    name: 'accept_tos',
+                    text: 'Bring it up to me',
+                    value: 'accept',
+                    type: 'button',
+                    style: 'primary',
+                },
+                {
+                    name: 'accept_tos',
+                    text: 'Leave it, i am afraid',
+                    value: 'deny',
+                    type: 'button',
+                    style: 'danger',
+                },
+            ],
+        }],
+    },
     GAME_ALREADY_EXIST: `Sorry,there's already a game in progress in this channel.Try playing in a different channel.`,
     NO_GAME_EXISTS: `There is currently no game in this channel.`,
     OPPONENT_NOT_IN_CHANNEL: `Sorry, you can only play with members of this channel.`,
