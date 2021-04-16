@@ -10,6 +10,7 @@ const { verifySlackSigningSecret } = require('./middleware/authorization');
 const { rawBodyBuilder } = require('./helpers/raw-body-builder');
 const GameManager = require('./lib/game-manager');
 const sendMessage = require('./helpers/messenger');
+const sendJsonMessage = require('./helpers/messenger');
 
 let workspaceUsers = {};
 let gameManager;
@@ -42,7 +43,7 @@ app.post('/slack/commands', (req, res) => {
     const params = req.body.text.split(/[ ,]+/);
     switch (params[0]) {
         case 'play':
-            sendMessage(sendJsonMessage(res,getWelcomeMessage()));
+            sendJsonMessage(res,getWelcomeMessage());
             //play(gameManager, channelId, userId, params, res);
             break;
         case 'status':

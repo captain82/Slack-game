@@ -139,3 +139,4 @@ function sendJsonMessage(res,json){
 }
 
 module.exports = sendMessage;
+module.exports = sendJsonMessage;
