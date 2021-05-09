@@ -21,6 +21,7 @@ let gameManager;
 const slackClient = new WebClient(config.SLACK_API_TOKEN);
 const slackInteractions = createMessageAdapter(config.SIGNING_SECRET);
 
+
 slackClient.users.list().then((res) => {
     for (const user of res.members) {
         console.log(user);
@@ -32,7 +33,7 @@ slackClient.users.list().then((res) => {
 });
 
 var app = express();
-
+app.use('/slack/actions', slackInteractions.expressMiddleware());
 app.use(bodyParser.json({ verify: rawBodyBuilder }));
 app.use(bodyParser.urlencoded({ verify: rawBodyBuilder, extended: true }));
 app.use(bodyParser.raw({ verify: rawBodyBuilder, type: () => true }));
@@ -67,10 +68,7 @@ app.post('/slack/commands', (req, res) => {
     }
 });
 
-
-
 slackInteractions.action('accept_tos', (payload, respond) => {
-    selectedList.clear();
     console.log("hurray");
     console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
 
