@@ -40,15 +40,16 @@ app.use(bodyParser.raw({ verify: rawBodyBuilder, type: () => true }));
 app.use(verifySlackSigningSecret);
 
 app.post('/slack/commands', (req, res) => {
-    console.log("shit");
+    console.log(req.body.user_name);
     console.log(req.body);
     res.set('content-type', 'application/json');
     const channelId = req.body.channel_id;
     const userId = req.body.user_id;
     const params = req.body.text.split(/[ ,]+/);
+    const challenger = req.body.user_name;
     switch (params[0]) {
         case 'play':
-            sendJsonMessage(res, getWelcomeMessage());
+            sendJsonMessage(res, getWelcomeMessage(challenger));
             //play(gameManager, channelId, userId, params, res);
             break;
         case 'status':
@@ -200,24 +201,24 @@ const ticTacInterface = {
 
 }
 
-function getWelcomeMessage() {
+function getWelcomeMessage(challenger) {
     return {
-        text: 'You are about to start the most terrific game of the entire gaming history',
+        text: `${challenger} is challenging you for a quick Tic Tac Toe game`,
         response_type: 'in_channel',
         attachments: [{
-            text: 'Buckle up fellas',
+            text: 'Let\'s break the ice',
             callback_id: 'accept_tos',
             actions: [
                 {
                     name: 'accept_tos',
-                    text: 'Bring it up to me',
+                    text: ':fencer: Bring it up. :fencer:',
                     value: 'accept',
                     type: 'button',
                     style: 'primary',
                 },
                 {
                     name: 'accept_tos',
-                    text: 'Leave it, i am afraid',
+                    text: ':male-technologist: I am Busy :female-technologist:',
                     value: 'deny',
                     type: 'button',
                     style: 'danger',
