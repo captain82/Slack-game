@@ -43,8 +43,8 @@ app.post('/slack/commands', (req, res) => {
     const params = req.body.text.split(/[ ,]+/);
     switch (params[0]) {
         case 'play':
-            sendJsonMessage(res, getWelcomeMessage());
-            //play(gameManager, channelId, userId, params, res);
+            //sendJsonMessage(res, getWelcomeMessage());
+            play(gameManager, channelId, userId, params, res);
             break;
         case 'status':
             status(gameManager, channelId, res);
