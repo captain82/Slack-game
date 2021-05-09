@@ -74,6 +74,10 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     const channelId = payload.body.channel_id;
     const userId = payload.body.user_id;
     const params = payload.body.text.split(/[ ,]+/);
+    console.log(channelId);
+    console.log(userId);
+    console.log(params);
+
     return play(gameManager, channelId, userId, params, respond);
     // Use the data model to persist the action
     // Before the work completes, return a message object that is the same as the original but with
