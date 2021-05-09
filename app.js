@@ -79,7 +79,7 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //console.log(params);
 
 
-    return sendJsonMessage(respond, getWelcomeMessage());
+    return sendJsonMessage(respond, getWelcomeMessag2());
     // Use the data model to persist the action
     // Before the work completes, return a message object that is the same as the original but with
     // the interactive elements removed.
@@ -91,6 +91,33 @@ slackInteractions.action('accept_tos', (payload, respond) => {
 function getWelcomeMessage() {
     return {
         text: 'You are about to start the most terrific game of the entire gaming history',
+        response_type: 'in_channel',
+        attachments: [{
+            text: 'Buckle up fellas',
+            callback_id: 'accept_tos',
+            actions: [
+                {
+                    name: 'accept_tos',
+                    text: 'Bring it up to me',
+                    value: 'accept',
+                    type: 'button',
+                    style: 'primary',
+                },
+                {
+                    name: 'accept_tos',
+                    text: 'Leave it, i am afraid',
+                    value: 'deny',
+                    type: 'button',
+                    style: 'danger',
+                },
+            ],
+        }],
+    }
+}
+
+function getWelcomeMessag2() {
+    return {
+        text: 'You are about to start the best terrific game of the entire gaming history',
         response_type: 'in_channel',
         attachments: [{
             text: 'Buckle up fellas',
