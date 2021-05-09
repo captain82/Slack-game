@@ -71,12 +71,12 @@ app.post('/slack/commands', (req, res) => {
 slackInteractions.action('accept_tos', (payload, respond) => {
     console.log("hurray");
     console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
+    console.log(payload);
     const channelId = payload.body.channel_id;
     const userId = payload.body.user_id;
     const params = payload.body.text.split(/[ ,]+/);
-    console.log(channelId);
-    console.log(userId);
-    console.log(params);
+    //console.log(userId);
+    //console.log(params);
 
     return play(gameManager, channelId, userId, params, respond);
     // Use the data model to persist the action
