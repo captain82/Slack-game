@@ -74,13 +74,13 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     const channelId = req.body.channel_id;
     const userId = req.body.user_id;
     const params = req.body.text.split(/[ ,]+/);
-    play(gameManager, channelId, userId, params, res);
+    return play(gameManager, channelId, userId, params, res);
     // Use the data model to persist the action
     // Before the work completes, return a message object that is the same as the original but with
     // the interactive elements removed.
-    const reply = payload.original_message;
-    delete reply.attachments[0].actions;
-    return reply;
+    //const reply = payload.original_message;
+    //delete reply.attachments[0].actions;
+    //return reply;
 });
 
 function getWelcomeMessage() {
