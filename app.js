@@ -71,10 +71,10 @@ app.post('/slack/commands', (req, res) => {
 slackInteractions.action('accept_tos', (payload, respond) => {
     console.log("hurray");
     console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
-    const channelId = req.body.channel_id;
-    const userId = req.body.user_id;
-    const params = req.body.text.split(/[ ,]+/);
-    return play(gameManager, channelId, userId, params, res);
+    const channelId = payload.body.channel_id;
+    const userId = payload.body.user_id;
+    const params = payload.body.text.split(/[ ,]+/);
+    return play(gameManager, channelId, userId, params, respond);
     // Use the data model to persist the action
     // Before the work completes, return a message object that is the same as the original but with
     // the interactive elements removed.
