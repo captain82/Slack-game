@@ -80,9 +80,9 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     respond(getWelcomeMessag2())
 
 
-    const reply = payload.original_message;
-    delete reply.attachments[0].actions;
-    return reply;
+    //const reply = payload.original_message;
+    //delete reply.attachments[0].actions;
+    //return reply;
     // Before the work completes, return a message object that is the same as the original but with
     // the interactive elements removed.
     //const reply = payload.original_message;
