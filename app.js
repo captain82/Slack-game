@@ -77,9 +77,9 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //const params = payload.body.text.split(/[ ,]+/);
     //console.log(userId);
     //console.log(params);
-    sendJsonMessage(respond, getWelcomeMessage());
 
-    return play(gameManager, channelId, userId, params, respond);
+
+    return sendJsonMessage(respond, getWelcomeMessage());
     // Use the data model to persist the action
     // Before the work completes, return a message object that is the same as the original but with
     // the interactive elements removed.
