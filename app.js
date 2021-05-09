@@ -11,6 +11,7 @@ const { rawBodyBuilder } = require('./helpers/raw-body-builder');
 const GameManager = require('./lib/game-manager');
 const sendMessage = require('./helpers/messenger');
 const sendJsonMessage = require('./helpers/messenger');
+const { createMessageAdapter } = require('@slack/interactive-messages');
 
 let workspaceUsers = {};
 let gameManager;
@@ -18,6 +19,8 @@ let gameManager;
 // Attain list of the usernames in the workspace
 // and map them to their userids
 const slackClient = new WebClient(config.SLACK_API_TOKEN);
+const slackInteractions = createMessageAdapter(config.SIGNING_SECRET);
+
 slackClient.users.list().then((res) => {
     for (const user of res.members) {
         console.log(user);
@@ -43,8 +46,8 @@ app.post('/slack/commands', (req, res) => {
     const params = req.body.text.split(/[ ,]+/);
     switch (params[0]) {
         case 'play':
-            //sendJsonMessage(res, getWelcomeMessage());
-            play(gameManager, channelId, userId, params, res);
+            sendJsonMessage(res, getWelcomeMessage());
+            //play(gameManager, channelId, userId, params, res);
             break;
         case 'status':
             status(gameManager, channelId, res);
@@ -62,6 +65,43 @@ app.post('/slack/commands', (req, res) => {
             res.status(200).send(constants.INVALID_COMMAND);
             break;
     }
+});
+
+
+
+app.action('accept_tos', (payload, respond) => {
+    selectedList.clear();
+    console.log("hurray");
+    console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
+
+    // Use the data model to persist the action
+    users.findBySlackId(payload.user.id)
+        .then(user => user.setPolicyAgreementAndSave(payload.actions[0].value === 'accept'))
+        .then((user) => {
+            // After the asynchronous work is done, call `respond()` with a message object to update the
+            // message.
+            let confirmation;
+            if (user.agreedToPolicy) {
+                confirmation = 'Thank you for agreeing to the terms of service';
+            } else {
+                confirmation = 'You have denied the terms of service. You will no longer have access to this app.';
+            }
+            respond(ticTacInterface);
+            //respond({ text: confirmation });
+        })
+        .catch((error) => {
+            // Handle errors
+            console.error(error);
+            respond({
+                text: 'An error occurred while recording your agreement choice.'
+            });
+        });
+
+    // Before the work completes, return a message object that is the same as the original but with
+    // the interactive elements removed.
+    const reply = payload.original_message;
+    delete reply.attachments[0].actions;
+    return reply;
 });
 
 function getWelcomeMessage() {
