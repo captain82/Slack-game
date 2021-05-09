@@ -77,7 +77,7 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //const params = payload.body.text.split(/[ ,]+/);
     //console.log(userId);
     //console.log(params);
-    respond(getWelcomeMessag2)
+    respond(getWelcomeMessag2())
 
 
     const reply = payload.original_message;
