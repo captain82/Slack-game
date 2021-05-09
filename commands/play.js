@@ -39,8 +39,8 @@ function play (gameManager, channelId, userId, cmdParams, res) {
   const board = game.boardToString();
   const headlineMsg = game.getHeadlineMsg();
   const currentPlayerMsg = game.getCurrentPlayerMsg();
-  sendJsonMessage(res,json);
-  //sendMessage(res, headlineMsg, [board, currentPlayerMsg]);
+  //sendJsonMessage(res,json);
+  sendMessage(res, headlineMsg, [board, currentPlayerMsg]);
 }
 
 module.exports = play;
