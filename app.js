@@ -40,7 +40,9 @@ app.use(bodyParser.raw({ verify: rawBodyBuilder, type: () => true }));
 app.use(verifySlackSigningSecret);
 
 app.post('/slack/commands', (req, res) => {
-    console.log("checking");
+    console.log(shit);
+
+    console.log(req.body);
     res.set('content-type', 'application/json');
     const channelId = req.body.channel_id;
     const userId = req.body.user_id;
