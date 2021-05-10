@@ -46,6 +46,7 @@ app.post('/slack/commands', (req, res) => {
     const userId = req.body.user_id;
     const params = req.body.text.split(/[ ,]+/);
     const challenger = req.body.user_name;
+    console.log(params);
     switch (params[0]) {
         case 'play':
             sendJsonMessage(res, getWelcomeMessage(challenger,userId));
