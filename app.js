@@ -78,15 +78,15 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //const params = payload.body.text.split(/[ ,]+/);
     //console.log(userId);
     //console.log(params);
-    respond(ticTacInterface);
-    // try {
-    //     const board = getBoard(3);
-    //     const boardString = board.map((row) => row.join('')).join('\n');
-    //     respond(boardString);
-    // } catch (error) {
-    //     console.log(error);
-
-    // }
+    //respond(ticTacInterface);
+     try {
+         const board = getBoard(3);
+         const boardString = board.map((row) => row.join('')).join('\n');
+         respond(boardString);
+     } catch (error) {
+         respond(ticTacInterface)
+         //console.log(error);
+     }
 
     //const reply = payload.original_message;
     //delete reply.attachments[0].actions;
