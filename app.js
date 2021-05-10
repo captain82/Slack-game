@@ -81,14 +81,9 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //respond(ticTacInterface);
      try {
          const board = getBoard(3);
-         console.log(board);
-         buildTicTacMessage(board);
-         const boardString =board.map((row) => row.join('')).join('\n');
-         //console.log(boardString);
-         respond(boardString);
+         respond(buildTicTacMessage(board));
      } catch (error) {
          respond(ticTacInterface)
-         console.log(error);
      }
 
     //const reply = payload.original_message;
@@ -137,13 +132,24 @@ function _buildMessage(mainMessage,attachments){
 }
 
 function buildTicTacMessage(board){
-    let blocksArray = [];
-    let elementsArray = [];
+    let ticTacInterfaces = {};
+    ticTacInterfaces.blocks = [];
     for(var i = 0; i < board.length; i++) {
+        ticTacInterfaces.blocks[i].type="actions";
+        ticTacInterfaces.blocks[i].elements = [];
         for(var j = 0; j < board[i].length; j++) {
             console.log(board[i][j]);
+            ticTacInterfaces.blocks[i].elements[j].type = "button";
+            ticTacInterfaces.blocks[i].elements[j].text = {};
+            ticTacInterfaces.blocks[i].elements[j].text.type = "plain_text";
+            ticTacInterfaces.blocks[i].elements[j].text.emoji = true;
+            ticTacInterfaces.blocks[i].elements[j].text.type = ":zap:";
+            ticTacInterfaces.blocks[i].elements[j].value = j;
+            ticTacInterfaces.blocks[i].elements[j].action_id = j;
         }
     }
+    console.log(ticTacInterfaces);
+    return ticTacInterfaces
 }
 
 const ticTacInterface = {
