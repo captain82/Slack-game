@@ -83,6 +83,7 @@ slackInteractions.action('accept_tos', (payload, respond) => {
          const board = getBoard(3);
          respond(buildTicTacMessage(board));
      } catch (error) {
+         console.log(error);
          respond(ticTacInterface)
      }
 
