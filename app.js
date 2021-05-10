@@ -81,11 +81,11 @@ slackInteractions.action('accept_tos', async (payload, respond) => {
     //respond(ticTacInterface);
      try {
          const board = getBoard(3);
-         const boardString = board.map((row) => row.join('')).join('\n');
+         const boardString =await board.map((row) => row.join('')).join('\n').catch(e=>console.log(e));
          respond(boardString);
      } catch (error) {
          respond(ticTacInterface)
-         //console.log(error);
+         console.log(error);
      }
 
     //const reply = payload.original_message;
