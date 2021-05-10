@@ -20,26 +20,26 @@ function play (gameManager, channelId, userId, res) {
   //   return;
   // }
 
-  if (gameManager.hasGame(channelId)) {
-    sendMessage(res, constants.GAME_ALREADY_EXISTS, []);
-    return;
-  }
+  // if (gameManager.hasGame(channelId)) {
+  //   sendMessage(res, constants.GAME_ALREADY_EXISTS, []);
+  //   return;
+  // }
 
   //const opponentName = cmdParams[1].replace('@', '');
   const opponentName = gameManager.getOpponentName();
 
-  if (!gameManager.hasUser(opponentName)) {
-    sendMessage(res, constants.OPPONENT_NOT_IN_CHANNEL, []);
-    return;
-  }
+  // if (!gameManager.hasUser(opponentName)) {
+  //   sendMessage(res, constants.OPPONENT_NOT_IN_CHANNEL, []);
+  //   return;
+  // }
 
   const opponentId = gameManager.getUserId(opponentName);
   gameManager.addGame(channelId, userId, opponentId);
 
   const game = gameManager.getGame(channelId);
   const board = game._buildTicTacMessage();
-  const headlineMsg = game.getHeadlineMsg();
-  const currentPlayerMsg = game.getCurrentPlayerMsg();
+  //const headlineMsg = game.getHeadlineMsg();
+  //const currentPlayerMsg = game.getCurrentPlayerMsg();
   sendJsonMessage(res,board);
   //sendMessage(res, headlineMsg, [board, currentPlayerMsg]);
 }
