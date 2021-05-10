@@ -149,6 +149,7 @@ function buildTicTacMessage(board){
             ticTacInterfaces.blocks[i].elements[j].text.type = ":zap:";
             ticTacInterfaces.blocks[i].elements[j].value = j;
             ticTacInterfaces.blocks[i].elements[j].action_id = j;
+            console.log(ticTacInterfaces.blocks[i].elements[j]);
         }
     }
     console.log(ticTacInterfaces);
