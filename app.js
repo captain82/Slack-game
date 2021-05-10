@@ -21,7 +21,6 @@ let gameManager;
 const slackClient = new WebClient(config.SLACK_API_TOKEN);
 const slackInteractions = createMessageAdapter(config.SIGNING_SECRET);
 
-
 slackClient.users.list().then((res) => {
     for (const user of res.members) {
         console.log(user);
@@ -50,7 +49,7 @@ app.post('/slack/commands', (req, res) => {
     switch (params[0]) {
         case 'play':
             sendJsonMessage(res, getWelcomeMessage(challenger));
-            //play(gameManager, channelId, userId, params, res);
+            play(gameManager, channelId, userId, params, res);
             break;
         case 'status':
             status(gameManager, channelId, res);
@@ -79,7 +78,9 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //const params = payload.body.text.split(/[ ,]+/);
     //console.log(userId);
     //console.log(params);
-    respond(ticTacInterface)
+    const board = getBoard(3);
+    const boardString = _board.map((row) => row.join('')).join('\n');
+    respond(boardString);
     //const reply = payload.original_message;
     //delete reply.attachments[0].actions;
     //return reply;
@@ -89,6 +90,41 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //delete reply.attachments[0].actions;
     //return reply;
 });
+
+ function getBoard(size) {
+    return [...new Array(size)].map((d, row) => {
+        return [...new Array(size)].map((d, col) => {
+            let position = _mapCoordstoMove(row, col);
+            return constants.boardSymbolMap[position.toString()];
+        });
+    });
+};
+
+function _mapCoordstoMove(row, col) {
+    return (row * 3) + col + 1;
+}
+
+function boardToString() {
+    return this._board.map((row) => row.join('')).join('\n');
+}
+
+function _buildAttachments(attachmentMessages){
+    let attachments = [];
+    for(const message of attachmentMessages){
+        attachments.push({
+            'text':message
+        });
+    }
+    return attachments;
+}
+
+function _buildMessage(mainMessage,attachments){
+    return{
+        'response_type':'in_channel',
+        'text': mainMessage,
+        'attachments':attachments
+    };
+}
 
 const ticTacInterface = {
     "blocks": [
@@ -198,7 +234,6 @@ const ticTacInterface = {
             ]
         }
     ]
-
 }
 
 function getWelcomeMessage(challenger) {
@@ -219,33 +254,6 @@ function getWelcomeMessage(challenger) {
                 {
                     name: 'accept_tos',
                     text: ':male-technologist: I am Busy :female-technologist:',
-                    value: 'deny',
-                    type: 'button',
-                    style: 'danger',
-                },
-            ],
-        }],
-    }
-}
-
-function getWelcomeMessag2() {
-    return {
-        text: 'You are about to start the best terrific game of the entire gaming history',
-        response_type: 'in_channel',
-        attachments: [{
-            text: 'Buckle up fellas',
-            callback_id: 'accept_tos',
-            actions: [
-                {
-                    name: 'accept_tos',
-                    text: 'Bring it up to me',
-                    value: 'accept',
-                    type: 'button',
-                    style: 'primary',
-                },
-                {
-                    name: 'accept_tos',
-                    text: 'Leave it, i am afraid',
                     value: 'deny',
                     type: 'button',
                     style: 'danger',
