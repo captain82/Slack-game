@@ -29,7 +29,7 @@ function sendJsonMessage(res,json){
 }
 
 function sendInteractiveMessage(res,json){
-    res.json(json);
+    res.send(json);
 }
 
 module.exports = sendMessage;
