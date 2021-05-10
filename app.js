@@ -49,7 +49,7 @@ app.post('/slack/commands', (req, res) => {
     switch (params[0]) {
         case 'play':
             sendJsonMessage(res, getWelcomeMessage(challenger));
-            play(gameManager, channelId, userId, params, res);
+            //play(gameManager, channelId, userId, params, res);
             break;
         case 'status':
             status(gameManager, channelId, res);
