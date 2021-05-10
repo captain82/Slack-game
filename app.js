@@ -133,7 +133,7 @@ function _buildMessage(mainMessage,attachments){
 }
 
 function buildTicTacMessage(board){
-    let ticTacInterfaces = {};
+    var ticTacInterfaces = {};
     ticTacInterfaces.blocks = [];
     for(var i = 0; i < board.length; i++) {
         ticTacInterfaces.blocks[i].type="actions";
