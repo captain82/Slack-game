@@ -2,6 +2,8 @@
 
 const sendMessage = require('../helpers/messenger');
 const sendJsonMessage = require('../helpers/messenger');
+const sendInteractiveMessage = require('../helpers/messenger');
+
 
 const constants = require('../constants');
 
@@ -40,7 +42,7 @@ function play (gameManager, channelId, userId, res) {
   const board = game._buildTicTacMessage();
   //const headlineMsg = game.getHeadlineMsg();
   //const currentPlayerMsg = game.getCurrentPlayerMsg();
-  sendJsonMessage(res,board);
+  sendInteractiveMessage(res,board);
   //sendMessage(res, headlineMsg, [board, currentPlayerMsg]);
 }
 

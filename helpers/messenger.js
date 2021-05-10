@@ -28,5 +28,10 @@ function sendJsonMessage(res,json){
     res.status(200).json(json);
 }
 
+function sendInteractiveMessage(res,json){
+    res(json);
+}
+
 module.exports = sendMessage;
 module.exports = sendJsonMessage;
+module.exports = sendInteractiveMessage;
