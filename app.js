@@ -269,6 +269,7 @@ const ticTacInterface = {
 }
 
 function getWelcomeMessage(challenger,userId) {
+    console.log(`<@${userId}>${constants.P1SYMBOL} is challenging you for a quick Tic Tac Toe game`);
     return {
         text: `<@${userId}>${constants.P1SYMBOL} is challenging you for a quick Tic Tac Toe game`,
         response_type: 'in_channel',
