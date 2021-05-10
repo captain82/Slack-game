@@ -82,8 +82,9 @@ slackInteractions.action('accept_tos', (payload, respond) => {
      try {
          const board = getBoard(3);
          console.log(board);
+         buildTicTacMessage(board);
          const boardString =board.map((row) => row.join('')).join('\n');
-         console.log(boardString);
+         //console.log(boardString);
          respond(boardString);
      } catch (error) {
          respond(ticTacInterface)
@@ -133,6 +134,16 @@ function _buildMessage(mainMessage,attachments){
         'text': mainMessage,
         'attachments':attachments
     };
+}
+
+function buildTicTacMessage(board){
+    let blocksArray = [];
+    let elementsArray = [];
+    for(var i = 0; i < board.length; i++) {
+        for(var j = 0; j < board[i].length; j++) {
+            console.log(board[i][j]);
+        }
+    }
 }
 
 const ticTacInterface = {
