@@ -74,18 +74,20 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     console.log("hurray");
     console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
     console.log(payload);
-    //const channelId = payload.body.channel_id;
-    //const userId = payload.body.user_id;
-    //const params = payload.body.text.split(/[ ,]+/);
-    //console.log(userId);
-    //console.log(params);
+    const channelId = payload.body.channel_id;
+    const userId = payload.body.user_id;
+    const params = payload.body.text.split(/[ ,]+/);
+    console.log(userId);
+    console.log(params);
     //respond(ticTacInterface);
+
      try {
-         const board = getBoard(3);
-         respond(buildTicTacMessage(board));
+         //const board = getBoard(3);
+         //respond(buildTicTacMessage(board));
+         play(gameManager, channelId, userId, params, respond);
      } catch (error) {
          console.log(error);
-         respond(ticTacInterface)
+        // respond(ticTacInterface)
      }
 
     //const reply = payload.original_message;

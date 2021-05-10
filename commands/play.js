@@ -36,11 +36,11 @@ function play (gameManager, channelId, userId, cmdParams, res) {
   gameManager.addGame(channelId, userId, opponentId);
 
   const game = gameManager.getGame(channelId);
-  const board = game.boardToString();
+  const board = game._buildTicTacMessage();
   const headlineMsg = game.getHeadlineMsg();
   const currentPlayerMsg = game.getCurrentPlayerMsg();
-  //sendJsonMessage(res,json);
-  sendMessage(res, headlineMsg, [board, currentPlayerMsg]);
+  sendJsonMessage(res,board);
+  //sendMessage(res, headlineMsg, [board, currentPlayerMsg]);
 }
 
 module.exports = play;
