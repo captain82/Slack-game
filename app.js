@@ -147,8 +147,8 @@ function buildTicTacMessage(board){
             ticTacInterfaces.blocks[i].elements[j].text.type = "plain_text";
             ticTacInterfaces.blocks[i].elements[j].text.emoji = true;
             ticTacInterfaces.blocks[i].elements[j].text.text = ":zap:";
-            ticTacInterfaces.blocks[i].elements[j].value = mapCoordstoMove(i,j);
-            ticTacInterfaces.blocks[i].elements[j].action_id = mapCoordstoMove(i,j);
+            ticTacInterfaces.blocks[i].elements[j].value = mapCoordstoMove(i,j).toString;
+            ticTacInterfaces.blocks[i].elements[j].action_id = mapCoordstoMove(i,j).toString;
             console.log(ticTacInterfaces.blocks[i].elements[j]);
         }
     }
