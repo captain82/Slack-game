@@ -69,7 +69,7 @@ app.post('/slack/commands', (req, res) => {
     }
 });
 
-slackInteractions.action('accept_tos', async (payload, respond) => {
+slackInteractions.action('accept_tos', (payload, respond) => {
     console.log("hurray");
     console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
     console.log(payload);
@@ -80,8 +80,10 @@ slackInteractions.action('accept_tos', async (payload, respond) => {
     //console.log(params);
     //respond(ticTacInterface);
      try {
-         const board = await getBoard(3).catch(e=>console.log(e));
+         const board = getBoard(3).catch(e=>console.log(e));
+         console.log(board);
          const boardString =board.map((row) => row.join('')).join('\n');
+         console.log(boardString);
          respond(boardString);
      } catch (error) {
          respond(ticTacInterface)
