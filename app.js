@@ -43,7 +43,7 @@ app.post('/slack/commands', (req, res) => {
     console.log(req.body);
     res.set('content-type', 'application/json');
     const channelId = req.body.channel_id;
-    const userId = req.body.user_id;
+    const userId = req.body.team_id;
     const params = req.body.text.split(/[ ,]+/);
     const challenger = req.body.user_name;
     console.log(params);
