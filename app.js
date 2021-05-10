@@ -69,7 +69,7 @@ app.post('/slack/commands', (req, res) => {
     }
 });
 
-slackInteractions.action('accept_tos', (payload, respond) => {
+slackInteractions.action('accept_tos', async (payload, respond) => {
     console.log("hurray");
     console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
     console.log(payload);
