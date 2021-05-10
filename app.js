@@ -162,7 +162,7 @@ const ticTacInterface = {
                     "text": {
                         "type": "plain_text",
                         "emoji": true,
-                        "text": ":zap:"
+                        "text": ":fencer:"
                     },
                     "action_id": "1",
                     "value": "1"
