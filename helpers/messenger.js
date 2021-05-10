@@ -135,7 +135,7 @@ function sendMessage(res,mainMessage,attachmentMessages){
 }
 
 function sendJsonMessage(res,json){
-    res.status(200).json(json);
+    res(json);
 }
 
 module.exports = sendMessage;
