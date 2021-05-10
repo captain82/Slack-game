@@ -79,7 +79,7 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //console.log(userId);
     //console.log(params);
     const board = getBoard(3);
-    const boardString = _board.map((row) => row.join('')).join('\n');
+    const boardString = board.map((row) => row.join('')).join('\n');
     respond(boardString);
     //const reply = payload.original_message;
     //delete reply.attachments[0].actions;
