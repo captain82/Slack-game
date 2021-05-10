@@ -157,7 +157,7 @@ function buildTicTacMessage(board){
 }
 
 function mapCoordstoMove(row, col) {
-    return (row * this._boardSize) + col + 1;
+    return (row * 3) + col + 1;
 }
 
 const ticTacInterface = {
