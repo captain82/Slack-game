@@ -80,7 +80,7 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //console.log(params);
     //respond(ticTacInterface);
      try {
-         const board = getBoard(3).catch(e=>console.log(e));
+         const board = getBoard(3);
          console.log(board);
          const boardString =board.map((row) => row.join('')).join('\n');
          console.log(boardString);
