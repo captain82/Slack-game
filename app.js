@@ -78,6 +78,14 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //const params = payload.body.text.split(/[ ,]+/);
     //console.log(userId);
     //console.log(params);
+    try {
+        const board = getBoard(3);
+        const boardString = board.map((row) => row.join('')).join('\n');
+        respond(boardString);
+    } catch (error) {
+        console.log(error);
+
+    }
     const board = getBoard(3);
     const boardString = board.map((row) => row.join('')).join('\n');
     respond(boardString);
