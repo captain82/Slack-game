@@ -136,10 +136,12 @@ function buildTicTacMessage(board){
     var ticTacInterfaces = {};
     ticTacInterfaces.blocks = [];
     for(var i = 0; i < board.length; i++) {
+        ticTacInterfaces.blocks[i] = {};
         ticTacInterfaces.blocks[i].type="actions";
         ticTacInterfaces.blocks[i].elements = [];
         for(var j = 0; j < board[i].length; j++) {
             console.log(board[i][j]);
+            ticTacInterfaces.blocks[i].elements[j] = {};
             ticTacInterfaces.blocks[i].elements[j].type = "button";
             ticTacInterfaces.blocks[i].elements[j].text = {};
             ticTacInterfaces.blocks[i].elements[j].text.type = "plain_text";
