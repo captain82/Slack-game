@@ -77,9 +77,9 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     console.log(payload);
     const channelId = payload.channel.id;
     const userId = payload.user.id;
-    const params = payload.text.split(/[ ,]+/);
+    //const params = payload.text.split(/[ ,]+/);
     console.log(userId);
-    console.log(params);
+    //console.log(params);
     //respond(ticTacInterface);
 
      try {
