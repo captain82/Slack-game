@@ -147,13 +147,17 @@ function buildTicTacMessage(board){
             ticTacInterfaces.blocks[i].elements[j].text.type = "plain_text";
             ticTacInterfaces.blocks[i].elements[j].text.emoji = true;
             ticTacInterfaces.blocks[i].elements[j].text.text = ":zap:";
-            ticTacInterfaces.blocks[i].elements[j].value = j;
-            ticTacInterfaces.blocks[i].elements[j].action_id = j;
+            ticTacInterfaces.blocks[i].elements[j].value = mapCoordstoMove(i,j);
+            ticTacInterfaces.blocks[i].elements[j].action_id = mapCoordstoMove(i,j);
             console.log(ticTacInterfaces.blocks[i].elements[j]);
         }
     }
     console.log(ticTacInterfaces);
     return ticTacInterfaces
+}
+
+function mapCoordstoMove(row, col) {
+    return (row * this._boardSize) + col + 1;
 }
 
 const ticTacInterface = {
