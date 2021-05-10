@@ -48,7 +48,7 @@ app.post('/slack/commands', (req, res) => {
     const challenger = req.body.user_name;
     switch (params[0]) {
         case 'play':
-            sendJsonMessage(res, getWelcomeMessage(challenger));
+            sendJsonMessage(res, getWelcomeMessage(challenger,userId));
             //play(gameManager, channelId, userId, params, res);
             break;
         case 'status':
@@ -149,10 +149,8 @@ function buildTicTacMessage(board){
             ticTacInterfaces.blocks[i].elements[j].text.text = ":zap:";
             ticTacInterfaces.blocks[i].elements[j].value = mapCoordstoMove(i,j).toString;
             ticTacInterfaces.blocks[i].elements[j].action_id = mapCoordstoMove(i,j).toString;
-            console.log(ticTacInterfaces.blocks[i].elements[j]);
         }
     }
-    console.log(JSON.stringify(ticTacInterfaces));
     return JSON.stringify(ticTacInterfaces)
 }
 
@@ -270,9 +268,9 @@ const ticTacInterface = {
     ]
 }
 
-function getWelcomeMessage(challenger) {
+function getWelcomeMessage(challenger,userId) {
     return {
-        text: `${challenger} is challenging you for a quick Tic Tac Toe game`,
+        text: `<@${userId}>${constants.P1SYMBOL} is challenging you for a quick Tic Tac Toe game`,
         response_type: 'in_channel',
         attachments: [{
             text: 'Let\'s break the ice',
