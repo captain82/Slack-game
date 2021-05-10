@@ -14,18 +14,19 @@ const constants = require('../constants');
 * @param userId {string}
 * @param res {Object} - the response object to post back to channel
 */
-function play (gameManager, channelId, userId, cmdParams, res) {
-  if (cmdParams.length !== 2 || cmdParams[1][0] !== '@') {
-    sendMessage(res, constants.INVALID_PLAY_REQUEST, []);
-    return;
-  }
+function play (gameManager, channelId, userId, res) {
+  // if (cmdParams.length !== 2 || cmdParams[1][0] !== '@') {
+  //   sendMessage(res, constants.INVALID_PLAY_REQUEST, []);
+  //   return;
+  // }
 
   if (gameManager.hasGame(channelId)) {
     sendMessage(res, constants.GAME_ALREADY_EXISTS, []);
     return;
   }
 
-  const opponentName = cmdParams[1].replace('@', '');
+  //const opponentName = cmdParams[1].replace('@', '');
+  const opponentName = gameManager.getOpponentName();
 
   if (!gameManager.hasUser(opponentName)) {
     sendMessage(res, constants.OPPONENT_NOT_IN_CHANNEL, []);

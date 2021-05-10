@@ -23,7 +23,6 @@ const slackInteractions = createMessageAdapter(config.SIGNING_SECRET);
 
 slackClient.users.list().then((res) => {
     for (const user of res.members) {
-        console.log(user);
         workspaceUsers[user.name] = user.id;
     }
     gameManager = new GameManager(workspaceUsers);
@@ -43,13 +42,15 @@ app.post('/slack/commands', (req, res) => {
     console.log(req.body);
     res.set('content-type', 'application/json');
     const channelId = req.body.channel_id;
-    const userId = req.body.team_id;
+    const userId = req.body.user_id;
     const params = req.body.text.split(/[ ,]+/);
-    const challenger = req.body.user_name;
-    console.log(params);
+    //const challenger = req.body.user_name;
+    //console.log(params);
     switch (params[0]) {
         case 'play':
             sendJsonMessage(res, getWelcomeMessage(challenger,userId));
+            console.log(params[1].replace('@', ''));
+            gameManager.addOpponentName(params[1].replace('@', ''));
             //play(gameManager, channelId, userId, params, res);
             break;
         case 'status':
@@ -74,9 +75,9 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     console.log("hurray");
     console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
     console.log(payload);
-    const channelId = payload.body.channel_id;
-    const userId = payload.body.user_id;
-    const params = payload.body.text.split(/[ ,]+/);
+    const channelId = payload.channel.id;
+    const userId = payload.user.id;
+    const params = payload.text.split(/[ ,]+/);
     console.log(userId);
     console.log(params);
     //respond(ticTacInterface);
@@ -84,7 +85,7 @@ slackInteractions.action('accept_tos', (payload, respond) => {
      try {
          //const board = getBoard(3);
          //respond(buildTicTacMessage(board));
-         play(gameManager, channelId, userId, params, respond);
+         play(gameManager, channelId, userId, respond);
      } catch (error) {
          console.log(error);
         // respond(ticTacInterface)
@@ -272,7 +273,6 @@ const ticTacInterface = {
 }
 
 function getWelcomeMessage(challenger,userId) {
-    console.log(`<@${userId}>${constants.P1SYMBOL} is challenging you for a quick Tic Tac Toe game`);
     return {
         text: `<@${userId}>${constants.P1SYMBOL} is challenging you for a quick Tic Tac Toe game`,
         response_type: 'in_channel',
