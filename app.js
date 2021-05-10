@@ -48,7 +48,7 @@ app.post('/slack/commands', (req, res) => {
     //console.log(params);
     switch (params[0]) {
         case 'play':
-            sendJsonMessage(res, getWelcomeMessage(challenger,userId));
+            sendJsonMessage(res, getWelcomeMessage(userId));
             console.log(params[1].replace('@', ''));
             gameManager.addOpponentName(params[1].replace('@', ''));
             //play(gameManager, channelId, userId, params, res);
@@ -272,7 +272,7 @@ const ticTacInterface = {
     ]
 }
 
-function getWelcomeMessage(challenger,userId) {
+function getWelcomeMessage(userId) {
     return {
         text: `<@${userId}>${constants.P1SYMBOL} is challenging you for a quick Tic Tac Toe game`,
         response_type: 'in_channel',
