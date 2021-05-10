@@ -152,8 +152,8 @@ function buildTicTacMessage(board){
             console.log(ticTacInterfaces.blocks[i].elements[j]);
         }
     }
-    console.log(ticTacInterfaces);
-    return ticTacInterfaces
+    console.log(JSON.stringify(ticTacInterfaces));
+    return JSON.stringify(ticTacInterfaces)
 }
 
 function mapCoordstoMove(row, col) {
