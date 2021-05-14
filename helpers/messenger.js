@@ -29,6 +29,7 @@ function _buildMessage(mainMessage,attachments){
  }
 
 function sendInteractiveMessage(res,json){
+    console.log(res);
     res.send(json);
 }
 

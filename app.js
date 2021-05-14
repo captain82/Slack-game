@@ -85,8 +85,9 @@ slackInteractions.action('accept_tos', (payload, respond) => {
      try {
          //const board = getBoard(3);
          //respond(buildTicTacMessage(board));
-         respond(ticTacInterface);
-         //play(gameManager, channelId, userId, respond);
+         //respond(ticTacInterface);
+         console.log(respond);
+         play(gameManager, channelId, userId, respond);
      } catch (error) {
          console.log(error);
         // respond(ticTacInterface)

@@ -42,6 +42,7 @@ function play (gameManager, channelId, userId, res) {
   const board = game._buildTicTacMessage();
   //const headlineMsg = game.getHeadlineMsg();
   //const currentPlayerMsg = game.getCurrentPlayerMsg();
+  console.log(res);
   sendInteractiveMessage(res,board);
   //sendMessage(res, headlineMsg, [board, currentPlayerMsg]);
 }
