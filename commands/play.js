@@ -16,7 +16,7 @@ const constants = require('../constants');
 * @param userId {string}
 * @param res {Object} - the response object to post back to channel
 */
-function play (gameManager, channelId, userId, res) {
+function play (gameManager, channelId, userId, respond) {
   // if (cmdParams.length !== 2 || cmdParams[1][0] !== '@') {
   //   sendMessage(res, constants.INVALID_PLAY_REQUEST, []);
   //   return;
@@ -40,10 +40,10 @@ function play (gameManager, channelId, userId, res) {
 
   const game = gameManager.getGame(channelId);
   const board = game._buildTicTacMessage();
+  return board;
   //const headlineMsg = game.getHeadlineMsg();
   //const currentPlayerMsg = game.getCurrentPlayerMsg();
-  console.log(res);
-  sendInteractiveMessage(res,board);
+  //sendInteractiveMessage(respond,board);
   //sendMessage(res, headlineMsg, [board, currentPlayerMsg]);
 }
 
