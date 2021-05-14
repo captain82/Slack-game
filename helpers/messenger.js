@@ -29,7 +29,7 @@ function _buildMessage(mainMessage,attachments){
  }
 
 function sendInteractiveMessage(res,json){
-    res(json);
+    res.send(json);
 }
 
 module.exports = sendMessage;
