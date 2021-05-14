@@ -104,7 +104,9 @@ slackInteractions.action('accept_tos', (payload, respond) => {
 });
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
-    const value = payload.actions[0].value
+    const value = payload.actions[0].value;
+    const channelId = payload.channel.id;
+    const userId = payload.user.id;
 
     try{
         var board = move(gameManager, channelId, userId, value);
