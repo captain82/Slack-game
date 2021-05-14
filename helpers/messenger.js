@@ -33,6 +33,6 @@ function sendInteractiveMessage(res,json){
     res(json);
 }
 
-module.exports = sendMessage;
-module.exports = sendJsonMessage;
-module.exports = sendInteractiveMessage;
+export default sendMessage;
+export default sendJsonMessage;
+export default sendInteractiveMessage;
