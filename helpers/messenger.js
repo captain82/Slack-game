@@ -30,9 +30,9 @@ function _buildMessage(mainMessage,attachments){
 
 function sendInteractiveMessage(res,json){
     console.log(json);
-    res.send(json);
+    res(json);
 }
 
-export default sendMessage;
-export default sendJsonMessage;
-export default sendInteractiveMessage;
+module.exports = sendMessage;
+module.exports = sendJsonMessage;
+module.exports = sendInteractiveMessage;
