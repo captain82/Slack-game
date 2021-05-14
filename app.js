@@ -48,7 +48,8 @@ app.post('/slack/commands', (req, res) => {
     //console.log(params);
     switch (params[0]) {
         case 'play':
-            sendJsonMessage(res, getWelcomeMessage(userId));
+            res.status(200).json(getWelcomeMessage(userId));
+            //sendJsonMessage(res, getWelcomeMessage(userId));
             console.log(params[1].replace('@', ''));
             gameManager.addOpponentName(params[1].replace('@', ''));
             //play(gameManager, channelId, userId, params, res);

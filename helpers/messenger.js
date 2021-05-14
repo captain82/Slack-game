@@ -1,5 +1,4 @@
 'use strict';
-import("@slack/interactive-messages")
 
 function _buildAttachments(attachmentMessages){
     let attachments = [];
