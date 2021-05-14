@@ -103,7 +103,7 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //return reply;
 });
 
-slackInteractions.action({type:"block_actions"},(payload,respond)=>{
+slackInteractions.action({type:'block_actions'},(payload,respond)=>{
     console.log(payload);
     console.log(payload.user.id);
     respond(ticTacInterface);
