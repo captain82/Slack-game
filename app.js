@@ -73,13 +73,12 @@ app.post('/slack/commands', (req, res) => {
 });
 
 slackInteractions.action('accept_tos', (payload, respond) => {
-    console.log("hurray");
-    console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
-    console.log(payload);
+    //console.log("hurray");
+    //console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
+    //console.log(payload);
     const channelId = payload.channel.id;
     const userId = payload.user.id;
     //const params = payload.text.split(/[ ,]+/);
-    console.log(userId);
     //console.log(params);
     //respond(ticTacInterface);
 
@@ -107,6 +106,7 @@ slackInteractions.action('accept_tos', (payload, respond) => {
 slackInteractions.action({type:"block_actions"},(payload,respond)=>{
     console.log(payload);
     console.log(payload.user.id);
+    respond(ticTacInterface);
 
     //switch(payload)
 
