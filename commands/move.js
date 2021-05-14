@@ -45,7 +45,7 @@ function move (gameManager, channelId, userId, position) {
   //   return;
   // }
 
-  game._addMove(position);
+  game._addMove(position.toInt());
 
 
   const board = game._buildTicTacMessage();
