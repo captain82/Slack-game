@@ -108,7 +108,7 @@ slackInteractions.action({ type: 'button' }, (payload, respond) => {
     const channelId = payload.channel.id;
     const userId = payload.user.id;
 
-    console.log(payload);
+    console.log(payload.channel.id);
     try{
         var board = move(gameManager, channelId, userId, value);
     }catch(error){
