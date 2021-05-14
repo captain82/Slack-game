@@ -1,6 +1,6 @@
 'use strict';
 
-const sendMessage = require('../helpers/messenger');
+const sendMessage = require('../helpers/messenger').default;
 const constants = require('../constants');
 
 /**

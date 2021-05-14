@@ -1,8 +1,8 @@
 'use strict';
 
-const sendMessage = require('../helpers/messenger');
-const sendJsonMessage = require('../helpers/messenger');
-const sendInteractiveMessage = require('../helpers/messenger');
+const sendMessage = require('../helpers/messenger').default;
+const sendJsonMessage = require('../helpers/messenger').default;
+const sendInteractiveMessage = require('../helpers/messenger').default;
 
 
 const constants = require('../constants');

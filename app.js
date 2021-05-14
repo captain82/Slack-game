@@ -9,8 +9,8 @@ const { move, play, end, status, help } = require('./commands/index');
 const { verifySlackSigningSecret } = require('./middleware/authorization');
 const { rawBodyBuilder } = require('./helpers/raw-body-builder');
 const GameManager = require('./lib/game-manager');
-const sendMessage = require('./helpers/messenger');
-const sendJsonMessage = require('./helpers/messenger');
+const sendMessage = require('./helpers/messenger').default;
+const sendJsonMessage = require('./helpers/messenger').default;
 const { createMessageAdapter } = require('@slack/interactive-messages');
 
 let workspaceUsers = {};
