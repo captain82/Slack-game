@@ -58,7 +58,7 @@ app.post('/slack/commands', (req, res) => {
             status(gameManager, channelId, res);
             break;
         case 'move':
-            move(gameManager, channelId, userId, params, res);
+
             break;
         case 'end':
             end(gameManager, channelId, userId, res);
@@ -104,9 +104,8 @@ slackInteractions.action('accept_tos', (payload, respond) => {
 });
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
-    console.log(payload);
-    console.log(payload.actions[0].value);
     const value = payload.actions[0].value
+    const board = move(gameManager, channelId, userId, value);
     switch (value) {
         case '1':
             console.log(payload.actions[0].value);
@@ -136,7 +135,7 @@ slackInteractions.action({ type: 'button' }, (payload, respond) => {
             console.log(payload.actions[0].value);
             break;
     }
-    respond(ticTacInterface);
+    respond(board);
 
     //switch(payload)
 
