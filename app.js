@@ -104,66 +104,14 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //return reply;
 });
 
- function getBoard(size) {
-    return [...new Array(size)].map((d, row) => {
-        return [...new Array(size)].map((d, col) => {
-            let position = _mapCoordstoMove(row, col);
-            return constants.boardSymbolMap[position.toString()];
-        });
-    });
-};
+slackInteractions.action({type:"block_actions"},(payload,respond)=>{
+    console.log(payload);
+    console.log(payload.user.id);
 
-function _mapCoordstoMove(row, col) {
-    return (row * 3) + col + 1;
-}
+    //switch(payload)
 
-function boardToString() {
-    return this._board.map((row) => row.join('')).join('\n');
-}
+});
 
-function _buildAttachments(attachmentMessages){
-    let attachments = [];
-    for(const message of attachmentMessages){
-        attachments.push({
-            'text':message
-        });
-    }
-    return attachments;
-}
-
-function _buildMessage(mainMessage,attachments){
-    return{
-        'response_type':'in_channel',
-        'text': mainMessage,
-        'attachments':attachments
-    };
-}
-
-function buildTicTacMessage(board){
-    var ticTacInterfaces = {};
-    ticTacInterfaces.blocks = [];
-    for(var i = 0; i < board.length; i++) {
-        ticTacInterfaces.blocks[i] = {};
-        ticTacInterfaces.blocks[i].type="actions";
-        ticTacInterfaces.blocks[i].elements = [];
-        for(var j = 0; j < board[i].length; j++) {
-            console.log(board[i][j]);
-            ticTacInterfaces.blocks[i].elements[j] = {};
-            ticTacInterfaces.blocks[i].elements[j].type = "button";
-            ticTacInterfaces.blocks[i].elements[j].text = {};
-            ticTacInterfaces.blocks[i].elements[j].text.type = "plain_text";
-            ticTacInterfaces.blocks[i].elements[j].text.emoji = true;
-            ticTacInterfaces.blocks[i].elements[j].text.text = ":zap:";
-            ticTacInterfaces.blocks[i].elements[j].value = mapCoordstoMove(i,j).toString;
-            ticTacInterfaces.blocks[i].elements[j].action_id = mapCoordstoMove(i,j).toString;
-        }
-    }
-    return JSON.stringify(ticTacInterfaces)
-}
-
-function mapCoordstoMove(row, col) {
-    return (row * 3) + col + 1;
-}
 
 const ticTacInterface = {
     "blocks": [
