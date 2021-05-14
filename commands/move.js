@@ -35,8 +35,6 @@ function move (gameManager, channelId, userId, position) {
   //   return;
   // }
 
-  const position = position;
-
   // if (isNaN(position) || !Number.isInteger(Number(position))) {
   //   sendMessage(res, constants.INVALID_MOVE, []);
   //   return;
