@@ -18,18 +18,18 @@ function _buildMessage(mainMessage,attachments){
     };
 }
 
-function sendMessage(res,mainMessage,attachmentMessages){
-    const attachments = _buildAttachments(attachmentMessages);
-    const message = _buildMessage(mainMessage,attachments);
-    res.status(200).json(ticTacInterface);
-}
+// function sendMessage(res,mainMessage,attachmentMessages){
+//     const attachments = _buildAttachments(attachmentMessages);
+//     const message = _buildMessage(mainMessage,attachments);
+//     res.status(200).json(ticTacInterface);
+// }
 
-function sendJsonMessage(res,json){
-    res.status(200).json(json);
-}
+// function sendJsonMessage(res,json){
+//     res.status(200).json(json);
+// }
 
 function sendInteractiveMessage(res,json){
-    res.send(json);
+    res(json);
 }
 
 module.exports = sendMessage;
