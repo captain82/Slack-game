@@ -82,16 +82,16 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //console.log(params);
     //respond(ticTacInterface);
 
-     try {
-         //const board = getBoard(3);
-         //respond(buildTicTacMessage(board));
-         //respond(ticTacInterface);
-         var board = play(gameManager, channelId, userId, respond);
-         respond(board);
-     } catch (error) {
-         console.log(error);
+    try {
+        //const board = getBoard(3);
+        //respond(buildTicTacMessage(board));
+        //respond(ticTacInterface);
+        var board = play(gameManager, channelId, userId, respond);
+        respond(board);
+    } catch (error) {
+        console.log(error);
         // respond(ticTacInterface)
-     }
+    }
 
     //const reply = payload.original_message;
     //delete reply.attachments[0].actions;
@@ -103,9 +103,39 @@ slackInteractions.action('accept_tos', (payload, respond) => {
     //return reply;
 });
 
-slackInteractions.action({type:'button'},(payload,respond)=>{
+slackInteractions.action({ type: 'button' }, (payload, respond) => {
     console.log(payload);
-    console.log(payload.user.id);
+    console.log(payload.actions[0].value);
+    const value = payload.actions[0].value
+    switch (value) {
+        case '1':
+            console.log(payload.actions[0].value);
+            break;
+        case '2':
+            console.log(payload.actions[0].value);
+            break;
+        case '2':
+            console.log(payload.actions[0].value);
+            break;
+        case '4':
+            console.log(payload.actions[0].value);
+            break;
+        case '5':
+            console.log(payload.actions[0].value);
+            break;
+        case '6':
+            console.log(payload.actions[0].value);
+            break;
+        case '7':
+            console.log(payload.actions[0].value);
+            break;
+        case '8':
+            console.log(payload.actions[0].value);
+            break;
+        case '9':
+            console.log(payload.actions[0].value);
+            break;
+    }
     respond(ticTacInterface);
 
     //switch(payload)
