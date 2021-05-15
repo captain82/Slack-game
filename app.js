@@ -104,7 +104,8 @@ slackInteractions.action('accept_tos', (payload, respond) => {
 });
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
-    const value = payload.actions[0].value
+    console.log(payload);
+    const value = payload.actions[0].value;
 
     switch (value) {
         case '1':
