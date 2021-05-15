@@ -104,16 +104,36 @@ slackInteractions.action('accept_tos', (payload, respond) => {
 });
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
-    const value = payload.actions[0].value;
-    const channelId = payload.channel.id;
-    const userId = payload.user.id;
+    const value = payload.actions[0].value
 
-    console.log(payload.channel.id);
-    try{
-        console.log(value);
-        var board = move(gameManager, channelId, userId, value);
-    }catch(error){
-        console.log(error);
+    switch (value) {
+        case '1':
+            console.log(value);
+            break;
+        case '2':
+            console.log(payload.actions[0].value);
+            break;
+        case '2':
+            console.log(payload.actions[0].value);
+            break;
+        case '4':
+            console.log(payload.actions[0].value);
+            break;
+        case '5':
+            console.log(payload.actions[0].value);
+            break;
+        case '6':
+            console.log(payload.actions[0].value);
+            break;
+        case '7':
+            console.log(payload.actions[0].value);
+            break;
+        case '8':
+            console.log(payload.actions[0].value);
+            break;
+        case '9':
+            console.log(payload.actions[0].value);
+            break;
     }
     respond(board);
 
