@@ -18,7 +18,7 @@ function move (gameManager, channelId, userId, position) {
   //   return;
   // }
 
-  let game = gameManager.getGame(channelId);
+  const game = gameManager.getGame(channelId);
 
   // if (!game.validPlayer(userId)) {
   //   sendMessage(res, constants.INVALID_PLAYER, []);
@@ -45,7 +45,8 @@ function move (gameManager, channelId, userId, position) {
   //   return;
   // }
 
-  game._addMove(position.toInt());
+  console.log(game);
+  game._addMove(position);
 
 
   const board = game._buildTicTacMessage();
