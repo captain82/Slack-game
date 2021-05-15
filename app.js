@@ -50,15 +50,11 @@ app.post('/slack/commands', (req, res) => {
         case 'play':
             res.status(200).json(getWelcomeMessage(userId));
             //sendJsonMessage(res, getWelcomeMessage(userId));
-            console.log(params[1].replace('@', ''));
             gameManager.addOpponentName(params[1].replace('@', ''));
             //play(gameManager, channelId, userId, params, res);
             break;
         case 'status':
             status(gameManager, channelId, res);
-            break;
-        case 'move':
-
             break;
         case 'end':
             end(gameManager, channelId, userId, res);
