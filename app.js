@@ -110,6 +110,7 @@ slackInteractions.action({ type: 'button' }, (payload, respond) => {
 
     console.log(payload.channel.id);
     try{
+        console.log(value);
         var board = move(gameManager, channelId, userId, value);
     }catch(error){
         console.log(error);

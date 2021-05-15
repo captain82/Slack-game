@@ -45,6 +45,7 @@ function move (gameManager, channelId, userId, position) {
   //   return;
   // }
 
+  console.log(position);
   game._addMove(position);
 
 
