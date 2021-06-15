@@ -16,6 +16,7 @@ const { createMessageAdapter } = require('@slack/interactive-messages');
 let workspaceUsers = {};
 let gameManager;
 
+
 // Attain list of the usernames in the workspace
 // and map them to their userids
 const slackClient = new WebClient(config.SLACK_API_TOKEN);
