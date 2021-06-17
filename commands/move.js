@@ -25,10 +25,10 @@ function move (gameManager, channelId, userId, position) {
   //   return;
   // }
 
-  // if (userId !== game.getCurrentPlayer()) {
-  //   sendMessage(res, constants.INVALID_TURN, []);
-  //   return;
-  // }
+   if (userId !== game.getCurrentPlayer()) {
+     sendMessage(res, constants.INVALID_TURN, []);
+     return;
+   }
 
   // if (cmdParams.length !== 2) {
   //   sendMessage(res, constants.INVALID_MOVE, []);
