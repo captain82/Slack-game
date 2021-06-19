@@ -45,8 +45,16 @@ function move (gameManager, channelId, userId, position) {
   //   return;
   // }
 
+   
+
   console.log(position);
   game._addMove(position);
+
+  if (game.isWinner()) {
+    sendMessage(res, '', [board, game.getWinMsg()]);
+    gameManager.removeGame(channelId);
+    return;
+  }
 
   const board = game._buildTicTacMessage();
   game.toggleCurrentPlayer();
