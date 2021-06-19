@@ -39,7 +39,6 @@ app.use(bodyParser.raw({ verify: rawBodyBuilder, type: () => true }));
 app.use(verifySlackSigningSecret);
 
 app.post('/slack/commands', (req, res) => {
-    console.log(req.body.user_name);
     console.log(req.body);
     res.set('content-type', 'application/json');
     const channelId = req.body.channel_id;
@@ -101,7 +100,6 @@ slackInteractions.action('accept_tos', (payload, respond) => {
 });
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
-    console.log(payload);
     const value = payload.actions[0].value;
     const channelId = payload.channel.id;
     const userId = payload.user.id;
