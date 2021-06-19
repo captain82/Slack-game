@@ -20,15 +20,15 @@ function move (gameManager, channelId, userId, position) {
 
   const game = gameManager.getGame(channelId);
 
-  // if (!game.validPlayer(userId)) {
-  //   sendMessage(res, constants.INVALID_PLAYER, []);
-  //   return;
-  // }
-
-   if (userId !== game.getCurrentPlayer()) {
-     sendMessage(res, constants.INVALID_TURN, []);
+   if (!game.validPlayer(userId)) {
+     sendMessage(res, constants.INVALID_PLAYER, []);
      return;
    }
+
+   //if (userId !== game.getCurrentPlayer()) {
+     //sendMessage(res, constants.INVALID_TURN, []);
+    // return;
+   //}
 
   // if (cmdParams.length !== 2) {
   //   sendMessage(res, constants.INVALID_MOVE, []);
