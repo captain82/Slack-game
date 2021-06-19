@@ -25,10 +25,10 @@ function move (gameManager, channelId, userId, position) {
      return;
    }
 
-   //if (userId !== game.getCurrentPlayer()) {
-     //sendMessage(res, constants.INVALID_TURN, []);
-    // return;
-   //}
+   if (userId !== game.getCurrentPlayer()) {
+     sendMessage(res, constants.INVALID_TURN, []);
+     return;
+   }
 
   // if (cmdParams.length !== 2) {
   //   sendMessage(res, constants.INVALID_MOVE, []);
@@ -47,7 +47,6 @@ function move (gameManager, channelId, userId, position) {
 
   console.log(position);
   game._addMove(position);
-
 
   const board = game._buildTicTacMessage();
   game.toggleCurrentPlayer();
