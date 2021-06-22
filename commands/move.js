@@ -55,6 +55,7 @@ function move (gameManager, channelId, userId, position) {
     const message = _buildMessage('',attachments);
     //sendMessage(res, '', [board, game.getWinMsg()]);
     gameManager.removeGame(channelId);
+    console.log(message);
     return message;
   }
 
