@@ -36,3 +36,5 @@ function sendInteractiveMessage(res,json){
 module.exports = sendMessage;
 module.exports = sendJsonMessage;
 module.exports = sendInteractiveMessage;
+module.exports = _buildAttachments;
+module.exports = _buildMessage;

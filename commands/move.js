@@ -51,9 +51,11 @@ function move (gameManager, channelId, userId, position) {
   game._addMove(position);
 
   if (game.isWinner()) {
-    sendMessage(res, '', [board, game.getWinMsg()]);
+    const attachments = _buildAttachments([game.getWinMsg()]);
+    const message = _buildMessage('',attachments);
+    //sendMessage(res, '', [board, game.getWinMsg()]);
     gameManager.removeGame(channelId);
-    return;
+    return message;
   }
 
   const board = game._buildTicTacMessage();
