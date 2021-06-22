@@ -51,6 +51,7 @@ function move (gameManager, channelId, userId, position) {
   game._addMove(position);
 
   if (game.isWinner()) {
+    game.toggleCurrentPlayer();
     const attachments = buildAttachments([game.getWinMsg()]);
     const message = buildMessage('',attachments);
     //sendMessage(res, '', [board, game.getWinMsg()]);
