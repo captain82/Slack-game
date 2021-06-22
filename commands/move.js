@@ -51,8 +51,8 @@ function move (gameManager, channelId, userId, position) {
   game._addMove(position);
 
   if (game.isWinner()) {
-    const attachments = _buildAttachments([game.getWinMsg()]);
-    const message = _buildMessage('',attachments);
+    const attachments = buildAttachments([game.getWinMsg()]);
+    const message = buildMessage('',attachments);
     //sendMessage(res, '', [board, game.getWinMsg()]);
     gameManager.removeGame(channelId);
     console.log(message);
@@ -78,6 +78,24 @@ function move (gameManager, channelId, userId, position) {
 
   //sreturn board;
   //sendMessage(res, '', [board, game.getCurrentPlayerMsg()]);
+}
+
+function buildAttachments(attachmentMessages){
+  let attachments = [];
+  for(const message of attachmentMessages){
+      attachments.push({
+          'text':message
+      });
+  }
+  return attachments;
+}
+
+function buildMessage(mainMessage,attachments){
+  return{
+      'response_type':'in_channel',
+      'text': mainMessage,
+      'attachments':attachments
+  };
 }
 
 module.exports = move;
