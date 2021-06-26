@@ -69,20 +69,11 @@ app.post('/slack/commands', (req, res) => {
 });
 
 slackInteractions.action('accept_tos', (payload, respond) => {
-    //console.log("hurray");
-    //console.log(`The user ${payload.user.name} in team ${payload.team.domain} pressed a button`);
-    //console.log(payload);
     const channelId = payload.channel.id;
     const userId = payload.user.id;
-    //const params = payload.text.split(/[ ,]+/);
-    //console.log(params);
-    //respond(ticTacInterface);
 
     try {
-        //const board = getBoard(3);
-        //respond(buildTicTacMessage(board));
-        //respond(ticTacInterface);
-
+    
         var board = play(gameManager, channelId, userId, respond);
         if(userId == gameManager.getGame(channelId).player1Id){
             respond(board);
@@ -91,15 +82,6 @@ slackInteractions.action('accept_tos', (payload, respond) => {
         console.log(error);
         // respond(ticTacInterface)
     }
-
-    //const reply = payload.original_message;
-    //delete reply.attachments[0].actions;
-    //return reply;
-    // Before the work completes, return a message object that is the same as the original but with
-    // the interactive elements removed.
-    //const reply = payload.original_message;
-    //delete reply.attachments[0].actions;
-    //return reply;
 });
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
@@ -110,9 +92,6 @@ slackInteractions.action({ type: 'button' }, (payload, respond) => {
     var board = move(gameManager,channelId,userId,value);
     console.log(board);
     respond(board);
-
-
-    //switch(payload)
 
 });
 
